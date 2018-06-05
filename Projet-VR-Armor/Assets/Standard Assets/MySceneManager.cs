@@ -52,11 +52,11 @@ public class MySceneManager : MonoBehaviour {
         // thirdPersonGo = GameObject.Find("Player_Woman_EPI");
 
         // MOYEN DE TROUVER UN GAMEOBJECT PAR TAG
-        thirdPersonGo = GameObject.FindGameObjectWithTag("Player");
-        thirdPersonCameraGo = GameObject.Find("3rdPersonCamera_FreeFormAndTargeting");
-        thirdPersonCam = thirdPersonCameraGo.GetComponent<Camera>();
+        //thirdPersonGo = GameObject.FindGameObjectWithTag("Player");
+        //thirdPersonCameraGo = GameObject.Find("3rdPersonCamera_FreeFormAndTargeting");
+        //thirdPersonCam = thirdPersonCameraGo.GetComponent<Camera>();
 
-        cam360Go = GameObject.Find("Camera360");
+        /*cam360Go = GameObject.Find("Camera360");
         cam360 = cam360Go.GetComponent<Camera>();
 
         cam360_2Go = GameObject.Find("Camera360_2");
@@ -69,9 +69,9 @@ public class MySceneManager : MonoBehaviour {
         cam360_4 = cam360_4Go.GetComponent<Camera>();
 
         cam360_5Go = GameObject.Find("Camera360_5");
-        cam360_5 = cam360_5Go.GetComponent<Camera>();
+        cam360_5 = cam360_5Go.GetComponent<Camera>();*/
 
-        SetInstant3rdView();
+        //SetInstant3rdView();
 
         //  Debug.Log("JE SUIS DANS LE AWAKE");
     }
@@ -157,7 +157,7 @@ public class MySceneManager : MonoBehaviour {
     //    currentActiveCam = fpsCam;
     //}
 
-    public void SetInstant3rdView()
+    /*public void SetInstant3rdView()
     {
         thirdPersonGo.SetActive(true);
         thirdPersonCameraGo.SetActive(true);
@@ -235,5 +235,5 @@ public class MySceneManager : MonoBehaviour {
 
         cam360_5Go.SetActive(true);
         currentActiveCam = cam360_5;
-    }
+    }*/
 }

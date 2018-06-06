@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using VRTK;
 
 //Script servant a calculer la distance entre deux points, a utiliser avec le script RaycastAffichage
 
@@ -15,6 +16,10 @@ public class CalculDist : MonoBehaviour
     private GameObject laser; //Laser à instancier
     private Transform laserTransform;//Cordonnées du laser
     private float dist;
+    public VRTK_Pointer pointer;
+
+    public ViveControllerInputTest LeftController;
+    public ViveControllerInputTest RightController;
 
 
 
@@ -27,6 +32,7 @@ public class CalculDist : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        pointer = GetComponent<VRTK_Pointer>();
         laser = Instantiate(laserPrefab);
         laserTransform = laser.transform;
         firstHit = false;
@@ -44,17 +50,19 @@ public class CalculDist : MonoBehaviour
             hitpoint1 = new Vector3();
             hitpoint2 = new Vector3();
         }
-        if (Input.GetMouseButtonUp(1))//Si clic gauche
+        if (LeftController.GripRealease || RightController.GripRealease)//SLeftController.GripRealeasei clic gauche
         {
             if (!firstHit)//si premier tir
             {
                 laser.SetActive(false);
                 DestroyObject(sphere1);//Destruction des anciennes sphères
                 DestroyObject(sphere2);
-                //Debug.Log("RAZ");
+                Debug.Log("RAZ");
 
-                //Debug.Log("First hit");
-                hitpoint1 = GetComponent<RaycastAffichage>().hitPointToSend; // récupération des coordonnées du premier tir
+                Debug.Log("First hit");
+                hitpoint1 = pointer.pointerRenderer.GetDestinationHit().point;
+                Debug.Log(hitpoint1.ToString());
+                //hitpoint1 = GetComponent<RaycastAffichage>().hitPointToSend; // récupération des coordonnées du premier tir
                 sphere1 = GameObject.Instantiate(HitPointSphere, hitpoint1,new Quaternion()); // création de la spère au point d'impact
                 sphere1.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère  
                 firstHit = true;
@@ -62,8 +70,10 @@ public class CalculDist : MonoBehaviour
             }
             if (firstHit && !secondHit)//si second tir
             {
-                //Debug.Log("Second hit");
-                hitpoint2 = GetComponent<RaycastAffichage>().hitPointToSend;// récupération des coordonnées du premier tir
+                Debug.Log("Second hit");
+                hitpoint2 = pointer.pointerRenderer.GetDestinationHit().point;
+                Debug.Log(hitpoint2.ToString());
+                //hitpoint2 = GetComponent<RaycastAffichage>().hitPointToSend;// récupération des coordonnées du premier tir
                 sphere2 = GameObject.Instantiate(HitPointSphere, hitpoint2, new Quaternion());// création de la spère au point d'impact
                 sphere2.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère                             
                 secondHit = true;
@@ -72,7 +82,7 @@ public class CalculDist : MonoBehaviour
                 
                 dist = echelle * dist;//mise à l'échelle
                 laser.GetComponent<AffichageFlottant>().calloutLabel = dist.ToString();               
-                //Debug.Log(dist);
+                Debug.Log(dist);
                 return;
             }
         } 

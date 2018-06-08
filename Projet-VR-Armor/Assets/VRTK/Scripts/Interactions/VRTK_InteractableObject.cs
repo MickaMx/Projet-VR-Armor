@@ -555,7 +555,7 @@ namespace VRTK
                 //objectHighlighter.Unhighlight();
                 for (int i = 0; i < allChildren.Length; i++)//On parcours tout les objects du modèle
                 {
-                    if (allChildren[i].gameObject.GetComponent<Renderer>() != null)//Si ils on un Renderer
+                    if (allChildren[i].gameObject.GetComponent<Renderer>() != null && allChildren[i].GetComponent<VRTK_InteractableObject>()!= null)//Si ils on un Renderer
                     {
 
                         allChildren[i].GetComponent<Renderer>().material = allChildren[i].GetComponent<VRTK_InteractableObject>().OriginMaterial;                    //

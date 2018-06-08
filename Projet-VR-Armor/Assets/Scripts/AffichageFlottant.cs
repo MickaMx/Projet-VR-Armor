@@ -22,7 +22,7 @@ public class AffichageFlottant : MonoBehaviour {
 
     void Update()
     {
-        UIManager.Instance.DisplayCallOut(gameObject, calloutLabel, height, extraYOffset, callOutColor);
+        //UIManager.Instance.DisplayCallOut(gameObject, calloutLabel, height, extraYOffset, callOutColor);
     }
 
    /* void OnMouseExit()

@@ -12,13 +12,12 @@ public class CalculDist : MonoBehaviour
     public GameObject HitPointSphere; //Matérialisation du point d'impact
     public int echelle;
     public float Taille_Sphère;
-
+    private SteamVR_TrackedObject trackedObj;
     private GameObject laser; //Laser à instancier
     private Transform laserTransform;//Cordonnées du laser
     private float dist;
     public VRTK_Pointer pointer;
 
-    public ViveControllerInputTest LeftController;
     public ViveControllerInputTest RightController;
 
 
@@ -30,9 +29,19 @@ public class CalculDist : MonoBehaviour
     GameObject sphere2; //Matérialisation du point d'impact
     GameObject sphere1;
     // Use this for initialization
+
+    private SteamVR_Controller.Device Controller
+    {
+        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+    }
+
+    void Awake()
+    {
+        trackedObj = RightController.GetComponent<SteamVR_TrackedObject>();
+    }
+
     void Start()
     {
-        pointer = GetComponent<VRTK_Pointer>();
         laser = Instantiate(laserPrefab);
         laserTransform = laser.transform;
         firstHit = false;
@@ -50,7 +59,7 @@ public class CalculDist : MonoBehaviour
             hitpoint1 = new Vector3();
             hitpoint2 = new Vector3();
         }
-        if (LeftController.GripRealease || RightController.GripRealease)//SLeftController.GripRealeasei clic gauche
+        if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))//SLeftController.GripRealeasei clic gauche
         {
             if (!firstHit)//si premier tir
             {
@@ -81,8 +90,8 @@ public class CalculDist : MonoBehaviour
                 ShowLaser();
                 
                 dist = echelle * dist;//mise à l'échelle
-                laser.GetComponent<AffichageFlottant>().calloutLabel = dist.ToString();               
-                Debug.Log(dist);
+                laser.GetComponentInChildren<VRTK_ObjectTooltip>().displayText = dist.ToString();    
+                Debug.Log(laser.GetComponentInChildren<VRTK_ObjectTooltip>().displayText);
                 return;
             }
         } 

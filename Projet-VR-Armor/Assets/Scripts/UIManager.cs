@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour {
 
     //CET OBJET EST UN SINGLETON : ON POURRA Y ACCEDER PLUS FACILEMENT DE L'EXTERIEUR
     private static UIManager _instance;
+    public Camera camera;
     public static UIManager Instance
     {
         get { if (!_instance)
@@ -57,7 +58,7 @@ public class UIManager : MonoBehaviour {
     {
         Vector3 pos2D;
         // ON CONVERTI LA WORLD POSITION XYZ DU MAINCOLLIDER EN 2D (en y rajoutant sa hauteur + un delta de extraOffset)
-        pos2D = MySceneManager.Instance.currentActiveCam.WorldToScreenPoint
+        pos2D = camera.WorldToScreenPoint
             (callOutGo.GetComponent<Transform>().position
             + Vector3.up * height
             + Vector3.up * extraOffset);

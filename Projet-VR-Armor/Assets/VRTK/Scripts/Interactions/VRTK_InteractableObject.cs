@@ -521,22 +521,23 @@ namespace VRTK
             allChildren = Parent.GetComponentsInChildren<Transform>();//Récupération des objects du modele
             
             if (toggle && !IsGrabbed())
+            {
+                if (tag == "Highlight")
                 {
-                
                     //objectHighlighter.Highlight(touchHighlightColor);
                     tag = "Origin";//tag l'object d'origin 
                     for (int i = 0; i < allChildren.Length; i++)//On parcours tout les objects du modèle
                     {
-                    
-                    if (allChildren[i].gameObject.GetComponent<Renderer>() != null)//Si ils on un Renderer
+
+                        if (allChildren[i].gameObject.GetComponent<Renderer>() != null)//Si ils on un Renderer
                         {
                             if (allChildren[i].tag != "Origin")//Si ce n'est pas l'origine
                             {
-                                Renderer rd = allChildren[i].gameObject.GetComponent<Renderer>();                               
+                                Renderer rd = allChildren[i].gameObject.GetComponent<Renderer>();
                                 allChildren[i].GetComponent<Renderer>().material.shader = Shader.Find("Legacy Shaders/Transparent/Diffuse");//On met le matériel à transparent
                                 allChildren[i].GetComponent<Renderer>().material = Transparent;
                                 Parent.GetComponent<IsOnFocus>().isOnFocus = true;
-                               
+
                             }
                             else//Si c'est l'object d'origin
                             {
@@ -544,25 +545,29 @@ namespace VRTK
                                 allChildren[i].GetComponent<Renderer>().material.shader = Shader.Find("Legacy Shaders/Transparent/Diffuse");
                                 allChildren[i].GetComponent<Renderer>().material = ToHighlight;
                                 Parent.GetComponent<IsOnFocus>().isOnFocus = true;
-                                
+
                             }
                         }
                     }
-                    tag = "Untagged";
+                    tag = "Highlight";
                 }
-                else
-                {
-                //objectHighlighter.Unhighlight();
-                for (int i = 0; i < allChildren.Length; i++)//On parcours tout les objects du modèle
-                {
-                    if (allChildren[i].gameObject.GetComponent<Renderer>() != null && allChildren[i].GetComponent<VRTK_InteractableObject>()!= null)//Si ils on un Renderer
+            }
+            else
+            {
+                //if (tag == "Highlight")
+                //{
+                    //objectHighlighter.Unhighlight();
+                    for (int i = 0; i < allChildren.Length; i++)//On parcours tout les objects du modèle
                     {
+                        if (allChildren[i].gameObject.GetComponent<Renderer>() != null && allChildren[i].GetComponent<VRTK_InteractableObject>() != null)//Si ils on un Renderer
+                        {
 
-                        allChildren[i].GetComponent<Renderer>().material = allChildren[i].GetComponent<VRTK_InteractableObject>().OriginMaterial;                    //
-                        allChildren[i].GetComponent<Renderer>().material.shader = Shader.Find("Standard");  //Remise au matériel initial
-                        allChildren[i].GetComponent<Renderer>().material.SetFloat("_Mode", 2);              //
+                            allChildren[i].GetComponent<Renderer>().material = allChildren[i].GetComponent<VRTK_InteractableObject>().OriginMaterial;                    //
+                            allChildren[i].GetComponent<Renderer>().material.shader = Shader.Find("Standard");  //Remise au matériel initial
+                            allChildren[i].GetComponent<Renderer>().material.SetFloat("_Mode", 2);              //
+                        }
                     }
-                }
+                //}
             }
         }
 

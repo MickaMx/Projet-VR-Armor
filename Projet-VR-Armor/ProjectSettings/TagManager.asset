@@ -9,6 +9,7 @@ TagManager:
   - projectile
   - Model
   - Origin
+  - Highlight
   layers:
   - Default
   - TransparentFX

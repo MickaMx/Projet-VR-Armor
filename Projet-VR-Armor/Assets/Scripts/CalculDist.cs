@@ -17,6 +17,7 @@ public class CalculDist : MonoBehaviour
     private Transform laserTransform;//Cordonnées du laser
     private float dist;
     public VRTK_Pointer pointer;
+    public VRTK_ControllerTooltips Tooltip;
 
     public ViveControllerInputTest RightController;
 
@@ -90,7 +91,9 @@ public class CalculDist : MonoBehaviour
                 ShowLaser();
                 
                 dist = echelle * dist;//mise à l'échelle
-                laser.GetComponentInChildren<VRTK_ObjectTooltip>().displayText = dist.ToString();    
+                //laser.GetComponentInChildren<VRTK_ObjectTooltip>().displayText = dist.ToString();    
+                Tooltip.touchpadText = dist.ToString();
+                Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.TouchpadTooltip, dist.ToString());
                 Debug.Log(laser.GetComponentInChildren<VRTK_ObjectTooltip>().displayText);
                 return;
             }

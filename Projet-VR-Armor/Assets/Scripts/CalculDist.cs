@@ -93,6 +93,7 @@ public class CalculDist : MonoBehaviour
                 dist = echelle * dist;//mise à l'échelle
                 Debug.Log(dist.ToString());
                 Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.TouchpadTooltip, dist.ToString());
+                //Debug.Log(Tooltip.touchpadText);
                 return;
             }
         } 

@@ -1215,6 +1215,10 @@ ModelImporter:
     102414: Cuve
     102416: Ligne EG
     102418: //RootNode
+    102420: Motorisation
+    102422: Ouverture cuve
+    102424: Socle
+    102426: Tuyauterie Cuve
     400000: ' 1'
     400002: ' 10'
     400004: ' 100'
@@ -2425,6 +2429,10 @@ ModelImporter:
     402414: Cuve
     402416: Ligne EG
     402418: //RootNode
+    402420: Motorisation
+    402422: Ouverture cuve
+    402424: Socle
+    402426: Tuyauterie Cuve
     2100000: 02 - Default
     2300000: ' 1'
     2300002: ' 10'
@@ -3635,6 +3643,10 @@ ModelImporter:
     2302412: ' 999'
     2302414: Cuve
     2302416: Ligne EG
+    2302418: Motorisation
+    2302420: Ouverture cuve
+    2302422: Socle
+    2302424: Tuyauterie Cuve
     3300000: ' 1'
     3300002: ' 10'
     3300004: ' 100'
@@ -4844,6 +4856,14 @@ ModelImporter:
     3302412: ' 999'
     3302414: Cuve
     3302416: Ligne EG
+    3302418: Motorisation
+    3302420: Ouverture cuve
+    3302422: Socle
+    3302424: Tuyauterie Cuve
+    4300000: Motorisation
+    4300002: Socle
+    4300004: Ouverture cuve
+    4300006: Tuyauterie Cuve
     4302414: Ligne EG
     4302416: Cuve
   externalObjects: {}

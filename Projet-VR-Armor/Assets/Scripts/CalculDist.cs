@@ -10,7 +10,7 @@ public class CalculDist : MonoBehaviour
 {
     public GameObject laserPrefab;
     public GameObject HitPointSphere; //Matérialisation du point d'impact
-    public int echelle;
+    public float echelle;
     public float Taille_Sphère;
     private SteamVR_TrackedObject trackedObj;
     private GameObject laser; //Laser à instancier
@@ -67,11 +67,11 @@ public class CalculDist : MonoBehaviour
                 laser.SetActive(false);
                 DestroyObject(sphere1);//Destruction des anciennes sphères
                 DestroyObject(sphere2);
-                Debug.Log("RAZ");
+                //Debug.Log("RAZ");
 
-                Debug.Log("First hit");
+                //Debug.Log("First hit");
                 hitpoint1 = pointer.pointerRenderer.GetDestinationHit().point;
-                Debug.Log(hitpoint1.ToString());
+                //Debug.Log(hitpoint1.ToString());
                 //hitpoint1 = GetComponent<RaycastAffichage>().hitPointToSend; // récupération des coordonnées du premier tir
                 sphere1 = GameObject.Instantiate(HitPointSphere, hitpoint1,new Quaternion()); // création de la spère au point d'impact
                 sphere1.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère  
@@ -80,21 +80,19 @@ public class CalculDist : MonoBehaviour
             }
             if (firstHit && !secondHit)//si second tir
             {
-                Debug.Log("Second hit");
+                //Debug.Log("Second hit");
                 hitpoint2 = pointer.pointerRenderer.GetDestinationHit().point;
-                Debug.Log(hitpoint2.ToString());
+                //Debug.Log(hitpoint2.ToString());
                 //hitpoint2 = GetComponent<RaycastAffichage>().hitPointToSend;// récupération des coordonnées du premier tir
                 sphere2 = GameObject.Instantiate(HitPointSphere, hitpoint2, new Quaternion());// création de la spère au point d'impact
                 sphere2.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère                             
                 secondHit = true;
                 dist = Vector3.Distance(hitpoint1, hitpoint2);// calcul de la distance entre les deux spères
                 ShowLaser();
-                
+                Debug.Log(dist.ToString());
                 dist = echelle * dist;//mise à l'échelle
-                //laser.GetComponentInChildren<VRTK_ObjectTooltip>().displayText = dist.ToString();    
-                Tooltip.touchpadText = dist.ToString();
+                Debug.Log(dist.ToString());
                 Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.TouchpadTooltip, dist.ToString());
-                Debug.Log(laser.GetComponentInChildren<VRTK_ObjectTooltip>().displayText);
                 return;
             }
         } 

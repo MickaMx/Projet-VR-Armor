@@ -72,7 +72,6 @@ public class CalculDist : MonoBehaviour
                 //Debug.Log("First hit");
                 hitpoint1 = pointer.pointerRenderer.GetDestinationHit().point;
                 //Debug.Log(hitpoint1.ToString());
-                //hitpoint1 = GetComponent<RaycastAffichage>().hitPointToSend; // récupération des coordonnées du premier tir
                 sphere1 = GameObject.Instantiate(HitPointSphere, hitpoint1,new Quaternion()); // création de la spère au point d'impact
                 sphere1.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère  
                 firstHit = true;
@@ -83,7 +82,6 @@ public class CalculDist : MonoBehaviour
                 //Debug.Log("Second hit");
                 hitpoint2 = pointer.pointerRenderer.GetDestinationHit().point;
                 //Debug.Log(hitpoint2.ToString());
-                //hitpoint2 = GetComponent<RaycastAffichage>().hitPointToSend;// récupération des coordonnées du premier tir
                 sphere2 = GameObject.Instantiate(HitPointSphere, hitpoint2, new Quaternion());// création de la spère au point d'impact
                 sphere2.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère                             
                 secondHit = true;
@@ -92,8 +90,8 @@ public class CalculDist : MonoBehaviour
                 Debug.Log(dist.ToString());
                 dist = echelle * dist;//mise à l'échelle
                 Debug.Log(dist.ToString());
-                Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.TouchpadTooltip, dist.ToString());
-                //Debug.Log(Tooltip.touchpadText);
+                
+                Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.StartMenuTooltip, dist.ToString());
                 return;
             }
         } 

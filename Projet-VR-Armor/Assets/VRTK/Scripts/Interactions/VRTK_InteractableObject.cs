@@ -554,8 +554,7 @@ namespace VRTK
             }
             else
             {
-                //if (tag == "Highlight")
-                //{
+                
                     //objectHighlighter.Unhighlight();
                     for (int i = 0; i < allChildren.Length; i++)//On parcours tout les objects du modèle
                     {
@@ -567,7 +566,7 @@ namespace VRTK
                             allChildren[i].GetComponent<Renderer>().material.SetFloat("_Mode", 2);              //
                         }
                     }
-                //}
+                
             }
         }
 

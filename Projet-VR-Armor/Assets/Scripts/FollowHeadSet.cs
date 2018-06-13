@@ -15,6 +15,8 @@ public class FollowHeadSet : MonoBehaviour {
 	void Update ()
     {
         source.GetComponent<Transform>().position = HeadSet.GetComponent<Transform>().position;
+        Vector3 temp = source.GetComponent<Transform>().position;
+        temp.y -= 0.8f;
         source.GetComponent<Transform>().rotation = HeadSet.GetComponent<Transform>().rotation;
 
     }

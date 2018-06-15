@@ -5,7 +5,6 @@ using VRTK;
 
 public class AffichageToolTip : MonoBehaviour {
     public VRTK_ControllerTooltips Tooltip;
-    //public VRTK_ObjectTooltip Tooltip;
     public string textAffichage;
     // Use this for initialization
     void Start () {

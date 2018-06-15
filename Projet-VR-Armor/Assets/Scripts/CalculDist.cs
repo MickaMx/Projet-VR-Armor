@@ -67,11 +67,8 @@ public class CalculDist : MonoBehaviour
                 laser.SetActive(false);
                 DestroyObject(sphere1);//Destruction des anciennes sphères
                 DestroyObject(sphere2);
-                //Debug.Log("RAZ");
 
-                //Debug.Log("First hit");
                 hitpoint1 = pointer.pointerRenderer.GetDestinationHit().point;
-                //Debug.Log(hitpoint1.ToString());
                 sphere1 = GameObject.Instantiate(HitPointSphere, hitpoint1,new Quaternion()); // création de la spère au point d'impact
                 sphere1.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère  
                 firstHit = true;
@@ -79,9 +76,7 @@ public class CalculDist : MonoBehaviour
             }
             if (firstHit && !secondHit)//si second tir
             {
-                //Debug.Log("Second hit");
                 hitpoint2 = pointer.pointerRenderer.GetDestinationHit().point;
-                //Debug.Log(hitpoint2.ToString());
                 sphere2 = GameObject.Instantiate(HitPointSphere, hitpoint2, new Quaternion());// création de la spère au point d'impact
                 sphere2.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère                             
                 secondHit = true;

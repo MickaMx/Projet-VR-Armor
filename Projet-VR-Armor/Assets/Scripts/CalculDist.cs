@@ -60,7 +60,7 @@ public class CalculDist : MonoBehaviour
             hitpoint1 = new Vector3();
             hitpoint2 = new Vector3();
         }
-        if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))//SLeftController.GripRealeasei clic gauche
+        if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))//SLeftController.GripRealeasei clic gauche
         {
             if (!firstHit)//si premier tir
             {
@@ -91,7 +91,7 @@ public class CalculDist : MonoBehaviour
                 dist = echelle * dist;//mise à l'échelle
                 Debug.Log(dist.ToString());
                 
-                Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.StartMenuTooltip, dist.ToString());
+                Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.GripTooltip, dist.ToString());
                 return;
             }
         } 

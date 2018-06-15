@@ -516,8 +516,8 @@ namespace VRTK
         {
             InitialiseHighlighter();
 
-            
-            Parent = GameObject.FindGameObjectWithTag("Model");//Trouver object initial, qui doit avoir le tag Model
+
+            Parent = transform.root.gameObject;
             allChildren = Parent.GetComponentsInChildren<Transform>();//Récupération des objects du modele
             
             if (toggle && !IsGrabbed())

@@ -5,6 +5,7 @@ using VRTK;
 
 public class AffichageToolTip : MonoBehaviour {
     public VRTK_ControllerTooltips Tooltip;
+    //public VRTK_ObjectTooltip Tooltip;
     public string textAffichage;
     // Use this for initialization
     void Start () {
@@ -18,12 +19,7 @@ public class AffichageToolTip : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        //GetComponentInChildren<Canvas>().enabled = true;
-        Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.TouchpadTooltip, textAffichage);
+        Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.TriggerTooltip, textAffichage);
     }
 
-    public void OnTriggerExit(Collider other)
-    {
-        //GetComponentInChildren<Canvas>().enabled = false;
-    }
 }

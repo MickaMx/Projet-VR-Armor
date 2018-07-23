@@ -155,6 +155,11 @@ Transform:
   m_Father: {fileID: 850714725}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &13596274 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20190454523314304, guid: 7d4a2b26c5d537a499b9acd3167bea14,
+    type: 2}
+  m_PrefabInternal: {fileID: 347782929}
 --- !u!1 &38530961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751c86c91a3934b4fbe253c09a61c176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToAnimate: {fileID: 1493867285}
+  objectAAnimer: {fileID: 1493867285}
   Animation1: OuvertureCouvercleG
   Animation2: FermetureCouvercleG
 --- !u!54 &225497353
@@ -1532,7 +1537,26 @@ Prefab:
       propertyPath: modelAliasRightController
       value: 
       objectReference: {fileID: 1201532618}
-    m_RemovedComponents: []
+    - target: {fileID: 114411703627497374, guid: 7d4a2b26c5d537a499b9acd3167bea14,
+        type: 2}
+      propertyPath: Suiveur
+      value: 
+      objectReference: {fileID: 13596274}
+    - target: {fileID: 114411703627497374, guid: 7d4a2b26c5d537a499b9acd3167bea14,
+        type: 2}
+      propertyPath: Source
+      value: 
+      objectReference: {fileID: 1369295501}
+    m_RemovedComponents:
+    - {fileID: 114060684080211130, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
+    - {fileID: 54070802987215892, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
+    - {fileID: 143309096375424742, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
+    - {fileID: 82502636911226576, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
+    - {fileID: 81191346802985932, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
+    - {fileID: 124600776148035780, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
+    - {fileID: 114321550964036736, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
+    - {fileID: 114046594357840332, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
+    - {fileID: 114005761201100180, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &383069314
@@ -5033,6 +5057,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1445010759306686, guid: 7d4a2b26c5d537a499b9acd3167bea14,
     type: 2}
   m_PrefabInternal: {fileID: 347782929}
+--- !u!20 &1369295501 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20713014509462994, guid: 7d4a2b26c5d537a499b9acd3167bea14,
+    type: 2}
+  m_PrefabInternal: {fileID: 347782929}
 --- !u!1 &1385198438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5325,7 +5354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751c86c91a3934b4fbe253c09a61c176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToAnimate: {fileID: 442510026}
+  objectAAnimer: {fileID: 442510026}
   Animation1: OuvertureCouvercleD
   Animation2: FermetureCouvercleD
 --- !u!23 &1437423497

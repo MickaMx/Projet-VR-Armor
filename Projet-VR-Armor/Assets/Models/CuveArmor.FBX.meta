@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: b90780413b2396245a382131acb3d62c
+timeCreated: 1530089741
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Condensat
+    100002: Cuve
+    100004: //RootNode
+    100006: "Eau glac\xE9e all\xE9"
+    100008: "Eau glac\xE9e retour"
+    100010: Evacuation anneau de pouilles
+    100012: Evacuation condenseur
+    100014: "Huile pour garniture m\xE9canique Droit"
+    100016: "Huile pour garniture m\xE9canique Gauche"
+    100018: Plateform
+    100020: Pompe fond de cuve
+    100022: Solvant
+    100024: Tuyauterie
+    100026: Vapeur
+    400000: Condensat
+    400002: Cuve
+    400004: //RootNode
+    400006: "Eau glac\xE9e all\xE9"
+    400008: "Eau glac\xE9e retour"
+    400010: Evacuation anneau de pouilles
+    400012: Evacuation condenseur
+    400014: "Huile pour garniture m\xE9canique Droit"
+    400016: "Huile pour garniture m\xE9canique Gauche"
+    400018: Plateform
+    400020: Pompe fond de cuve
+    400022: Solvant
+    400024: Tuyauterie
+    400026: Vapeur
+    2100000: 01 - Default
+    2300000: Condensat
+    2300002: Cuve
+    2300004: "Eau glac\xE9e all\xE9"
+    2300006: "Eau glac\xE9e retour"
+    2300008: Evacuation anneau de pouilles
+    2300010: Evacuation condenseur
+    2300012: "Huile pour garniture m\xE9canique Droit"
+    2300014: "Huile pour garniture m\xE9canique Gauche"
+    2300016: Plateform
+    2300018: Pompe fond de cuve
+    2300020: Solvant
+    2300022: Tuyauterie
+    2300024: Vapeur
+    3300000: Condensat
+    3300002: Cuve
+    3300004: "Eau glac\xE9e all\xE9"
+    3300006: "Eau glac\xE9e retour"
+    3300008: Evacuation anneau de pouilles
+    3300010: Evacuation condenseur
+    3300012: "Huile pour garniture m\xE9canique Droit"
+    3300014: "Huile pour garniture m\xE9canique Gauche"
+    3300016: Plateform
+    3300018: Pompe fond de cuve
+    3300020: Solvant
+    3300022: Tuyauterie
+    3300024: Vapeur
+    4300000: Condensat
+    4300002: Cuve
+    4300004: "Eau glac\xE9e all\xE9"
+    4300006: "Eau glac\xE9e retour"
+    4300008: Evacuation anneau de pouilles
+    4300010: Evacuation condenseur
+    4300012: "Huile pour garniture m\xE9canique Droit"
+    4300014: "Huile pour garniture m\xE9canique Gauche"
+    4300016: Plateform
+    4300018: Pompe fond de cuve
+    4300020: Solvant
+    4300022: Tuyauterie
+    4300024: Vapeur
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

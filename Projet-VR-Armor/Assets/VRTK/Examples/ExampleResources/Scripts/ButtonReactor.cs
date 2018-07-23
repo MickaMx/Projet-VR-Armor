@@ -3,10 +3,16 @@
     using UnityEngine;
     using UnityEventHelper;
 
-    public class ButtonReactor : MonoBehaviour
+    public class ButtonReactor : MonoBehaviour //joue deux animation en alternance a chaque appuie sur le bouton
     {
-        public GameObject go;
-        public Transform dispenseLocation;
+        public GameObject objectToAnimate;
+        public string Animation1;
+        public string Animation2;
+
+
+        private bool firstHit;  //Flag pour la succession de la selection des points.
+        private bool secondHit;
+        private Animation anim;
 
         private VRTK_Button_UnityEvents buttonEvents;
 
@@ -22,10 +28,25 @@
 
         private void handlePush(object sender, Control3DEventArgs e)
         {
-            VRTK_Logger.Info("Pushed");
-
-            GameObject newGo = (GameObject)Instantiate(go, dispenseLocation.position, Quaternion.identity);
-            Destroy(newGo, 10f);
+                if (firstHit && secondHit)//Actif quand deux tirs ont été réalisé
+                {
+                    firstHit = false;//Remise a zero
+                    secondHit = false;
+                }
+                if (!firstHit)//si premier appui
+                {
+                    // Debug.Log("play ouverture");
+                    firstHit = true;
+                    anim.Play(Animation1);
+                    return;
+                }
+                if (firstHit && !secondHit)//si second appui
+                {
+                    // Debug.Log("play Fermeture");
+                    secondHit = true;
+                    anim.Play(Animation2);
+                    return;
+                } 
         }
     }
 }

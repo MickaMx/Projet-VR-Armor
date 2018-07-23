@@ -88,7 +88,7 @@ namespace VRTK
             SetContainer();
             SetText("UITextFront");
             SetText("UITextReverse");
-            SetLine();
+            //SetLine();
             if (drawLineTo == null && transform.parent != null)
             {
                 drawLineTo = transform.parent;
@@ -125,7 +125,7 @@ namespace VRTK
 
         protected virtual void Update()
         {
-            DrawLine();
+            //DrawLine();
             if (alwaysFaceHeadset)
             {
                 transform.LookAt(headset);
@@ -156,7 +156,7 @@ namespace VRTK
             tmpText.fontSize = fontSize;
         }
 
-        protected virtual void SetLine()
+       /* protected virtual void SetLine()
         {
             line = transform.Find("Line").GetComponent<LineRenderer>();
             line.material = Resources.Load("TooltipLine") as Material;
@@ -183,6 +183,6 @@ namespace VRTK
                 line.SetPosition(0, drawLineFrom.position);
                 line.SetPosition(1, drawLineTo.position);
             }
-        }
+        }*/
     }
 }

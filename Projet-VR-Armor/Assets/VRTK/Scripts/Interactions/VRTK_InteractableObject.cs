@@ -41,18 +41,6 @@ namespace VRTK
     [AddComponentMenu("VRTK/Scripts/Interactions/VRTK_InteractableObject")]
     public class VRTK_InteractableObject : MonoBehaviour
     {
-
-        MeshRenderer mr;
-        Color[] originColors; //Devenu un tableau d'origin Colors (car plusieurs matériaux id à gérer désormais)
-        public string mainTxtContent;
-        public Texture2D imgTex;//Texte à afficher sur l'UI
-        public Color callOutColor = Color.red;//Couleur de l'object si on passe la souris dessus
-        public Material Transparent;//Matériel transparent
-        public Material ToHighlight;//Matériel qui ressort quand le reste est transparent
-        GameObject Parent;//Object initial du modèle
-        Transform[] allChildren;//Tableau d'object contenant tout le modèle
-        public Material OriginMaterial;
-
         /// <summary>
         /// Allowed controller type.
         /// </summary>
@@ -171,9 +159,6 @@ namespace VRTK
         /// </summary>
         [HideInInspector]
         public int usingState = 0;
-
-            
-        
 
         /// <summary>
         /// isKinematic is a pass through to the `isKinematic` getter/setter on the object's rigidbody component.
@@ -506,8 +491,6 @@ namespace VRTK
             usingObject = null;
         }
 
-        
-
         /// <summary>
         /// The ToggleHighlight method is used to turn on or off the colour highlight of the object.
         /// </summary>
@@ -516,57 +499,16 @@ namespace VRTK
         {
             InitialiseHighlighter();
 
-
-            Parent = transform.root.gameObject;
-            allChildren = Parent.GetComponentsInChildren<Transform>();//Récupération des objects du modele
-            
-            if (toggle && !IsGrabbed())
+            if (touchHighlightColor != Color.clear && objectHighlighter)
             {
-                if (tag == "Highlight")
+                if (toggle && !IsGrabbed())
                 {
-                    //objectHighlighter.Highlight(touchHighlightColor);
-                    tag = "Origin";//tag l'object d'origin 
-                    for (int i = 0; i < allChildren.Length; i++)//On parcours tout les objects du modèle
-                    {
-
-                        if (allChildren[i].gameObject.GetComponent<Renderer>() != null)//Si ils on un Renderer
-                        {
-                            if (allChildren[i].tag != "Origin")//Si ce n'est pas l'origine
-                            {
-                                Renderer rd = allChildren[i].gameObject.GetComponent<Renderer>();
-                                allChildren[i].GetComponent<Renderer>().material.shader = Shader.Find("Legacy Shaders/Transparent/Diffuse");//On met le matériel à transparent
-                                allChildren[i].GetComponent<Renderer>().material = Transparent;
-                                Parent.GetComponent<IsOnFocus>().isOnFocus = true;
-
-                            }
-                            else//Si c'est l'object d'origin
-                            {
-                                Renderer rd = allChildren[i].gameObject.GetComponent<Renderer>();
-                                allChildren[i].GetComponent<Renderer>().material.shader = Shader.Find("Legacy Shaders/Transparent/Diffuse");
-                                allChildren[i].GetComponent<Renderer>().material = ToHighlight;
-                                Parent.GetComponent<IsOnFocus>().isOnFocus = true;
-
-                            }
-                        }
-                    }
-                    tag = "Highlight";
+                    objectHighlighter.Highlight(touchHighlightColor);
                 }
-            }
-            else
-            {
-                
-                    //objectHighlighter.Unhighlight();
-                    for (int i = 0; i < allChildren.Length; i++)//On parcours tout les objects du modèle
-                    {
-                        if (allChildren[i].gameObject.GetComponent<Renderer>() != null && allChildren[i].GetComponent<VRTK_InteractableObject>() != null)//Si ils on un Renderer
-                        {
-
-                            allChildren[i].GetComponent<Renderer>().material = allChildren[i].GetComponent<VRTK_InteractableObject>().OriginMaterial;                    //
-                            allChildren[i].GetComponent<Renderer>().material.shader = Shader.Find("Standard");  //Remise au matériel initial
-                            allChildren[i].GetComponent<Renderer>().material.SetFloat("_Mode", 2);              //
-                        }
-                    }
-                
+                else
+                {
+                    objectHighlighter.Unhighlight();
+                }
             }
         }
 

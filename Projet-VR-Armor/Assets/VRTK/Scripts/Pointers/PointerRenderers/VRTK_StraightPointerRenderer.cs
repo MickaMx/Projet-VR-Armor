@@ -122,8 +122,9 @@ namespace VRTK
             else
             {
                 actualTracer = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                actualTracer.GetComponent<BoxCollider>().isTrigger = true;
-                actualTracer.AddComponent<Rigidbody>().isKinematic = true;
+                actualTracer.GetComponent<Collider>().enabled = false;
+                //actualTracer.GetComponent<BoxCollider>().isTrigger = true;
+               // actualTracer.AddComponent<Rigidbody>().isKinematic = true;
                 actualTracer.layer = LayerMask.NameToLayer("Ignore Raycast");
 
                 SetupMaterialRenderer(actualTracer);
@@ -144,9 +145,10 @@ namespace VRTK
             else
             {
                 actualCursor = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                actualCursor.GetComponent<Collider>().enabled = false;
                 actualCursor.transform.localScale = Vector3.one * (scaleFactor * cursorScaleMultiplier);
-                actualCursor.GetComponent<Collider>().isTrigger = true;
-                actualCursor.AddComponent<Rigidbody>().isKinematic = true;
+                //actualCursor.GetComponent<Collider>().isTrigger = false;
+                //actualCursor.AddComponent<Rigidbody>().isKinematic = false;
                 actualCursor.layer = LayerMask.NameToLayer("Ignore Raycast");
 
                 SetupMaterialRenderer(actualCursor);

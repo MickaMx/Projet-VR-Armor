@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1556090395863502}
+  m_IsPrefabParent: 1
+--- !u!1 &1556090395863502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4003774182396168}
+  - component: {fileID: 114372270771448614}
+  - component: {fileID: 114190099545673176}
+  - component: {fileID: 114565797812445226}
+  m_Layer: 0
+  m_Name: CloudManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4003774182396168
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556090395863502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4245826, y: -28.876278, z: -22.121305}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114190099545673176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556090395863502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5aeac94ea0f4bb48a4c7801ec603d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: 
+  pointset: {fileID: 114565797812445226}
+--- !u!114 &114372270771448614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556090395863502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 189dc77c15ff16f4196565f8d28d0c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointRadius: 5
+  renderCircles: 1
+  screenSize: 1
+  interpolation: 0
+  reloadingPossible: 1
+  reload: 0
+--- !u!114 &114565797812445226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556090395863502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b523c1e53fa68084fb4331833d9a9a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveCenterToTransformPosition: 1
+  pointBudget: 1000000
+  minNodeSize: 10
+  nodesLoadedPerFrame: 15
+  nodesGOsPerFrame: 30
+  meshConfiguration: {fileID: 114372270771448614}
+  cacheSizeInPoints: 1000000

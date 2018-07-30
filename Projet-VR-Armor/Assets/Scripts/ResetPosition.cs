@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
@@ -18,7 +19,8 @@ public enum Buttonreset //sert à selectionner un boution dans l'inspector dans 
 }
 
 //ce script permet en cas d'appuie sur le boutton selectionner de changer la position du casque suivant les coordonnées x,y,z.
-public class ResetPosition : MonoBehaviour {
+public class ResetPosition : MonoBehaviour
+{
 
     [Header("Input")]
     public Buttonreset Button = Buttonreset.ApplicationMenu;
@@ -37,7 +39,8 @@ public class ResetPosition : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         ButtonInt = (int)Button;
 
         switch (ButtonInt)//Selection du boutton
@@ -79,7 +82,18 @@ public class ResetPosition : MonoBehaviour {
 
     private SteamVR_Controller.Device Controller
     {
-        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+        get
+        {
+            try
+            {
+                return SteamVR_Controller.Input((int)trackedObj.index);
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 
     void Awake()
@@ -89,13 +103,20 @@ public class ResetPosition : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update () {
-
-        if (Controller.GetPressDown(ButtonULong))
+    void Update()
+    {
+        try
         {
-            Vector3 offset = cameraRigTransform.position - HeadTransform.position;//calcul de l'offset
-            offset.y = 0;
-            cameraRigTransform.position = new Vector3(x, y, z) + offset; //on change la position du casque avec un offset pour rester au meme endroit dans le cameraRig
+            if (Controller.GetPressDown(ButtonULong))
+            {
+                Vector3 offset = cameraRigTransform.position - HeadTransform.position;//calcul de l'offset
+                offset.y = 0;
+                cameraRigTransform.position = new Vector3(x, y, z) + offset; //on change la position du casque avec un offset pour rester au meme endroit dans le cameraRig
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning(e.Message);
         }
     }
 }

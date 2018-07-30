@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,8 +50,21 @@ public class CalculDist : MonoBehaviour
 
     private SteamVR_Controller.Device Controller
     {
-        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+        get
+        {
+            try
+            {
+                return SteamVR_Controller.Input((int)trackedObj.index);
+
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning(e.Message);
+                return null;
+            }
+        }
     }
+
 
     void Awake()
     {
@@ -59,6 +73,7 @@ public class CalculDist : MonoBehaviour
 
     void Start()
     {
+
         laser = Instantiate(laserPrefab);//instantiate des lasers
         laserTransform = laser.transform;
         laserX = Instantiate(laserXPrefab);
@@ -72,39 +87,48 @@ public class CalculDist : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (firstHit && secondHit)//Actif quand deux tirs ont été réalisé
+        try
         {
-            firstHit = false;//Remise a zero
-            secondHit = false;
-            hitpoint1 = new Vector3();
-            hitpoint2 = new Vector3();
-        }
-        if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))//Si on relache le touchpad de la manette
-        {
-            if (!firstHit)//si premier tir
-            {
-                laser.SetActive(false);//on cache les lasers
-                laserX.SetActive(false);
-                laserY.SetActive(false);
-                DestroyObject(sphere1);//Destruction des anciennes sphères
-                DestroyObject(sphere2);
 
-                hitpoint1 = pointer.pointerRenderer.GetDestinationHit().point;//point d'impact
-                sphere1 = GameObject.Instantiate(HitPointSphere, hitpoint1, new Quaternion()); // création de la spère au point d'impact
-                sphere1.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère  
-                firstHit = true;
-                return;
-            }
-            if (firstHit && !secondHit)//si second tir
+
+            if (firstHit && secondHit)//Actif quand deux tirs ont été réalisé
             {
-                hitpoint2 = pointer.pointerRenderer.GetDestinationHit().point;// point d'impact
-                sphere2 = GameObject.Instantiate(HitPointSphere, hitpoint2, new Quaternion());// création de la spère au point d'impact
-                sphere2.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère                             
-                secondHit = true;
-                dist = Vector3.Distance(hitpoint1, hitpoint2);// calcul de la distance entre les deux spères
-                ShowLaser();
-                return;
+                firstHit = false;//Remise a zero
+                secondHit = false;
+                hitpoint1 = new Vector3();
+                hitpoint2 = new Vector3();
             }
+            if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))//Si on relache le touchpad de la manette
+            {
+                if (!firstHit)//si premier tir
+                {
+                    laser.SetActive(false);//on cache les lasers
+                    laserX.SetActive(false);
+                    laserY.SetActive(false);
+                    DestroyObject(sphere1);//Destruction des anciennes sphères
+                    DestroyObject(sphere2);
+
+                    hitpoint1 = pointer.pointerRenderer.GetDestinationHit().point;//point d'impact
+                    sphere1 = GameObject.Instantiate(HitPointSphere, hitpoint1, new Quaternion()); // création de la spère au point d'impact
+                    sphere1.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère  
+                    firstHit = true;
+                    return;
+                }
+                if (firstHit && !secondHit)//si second tir
+                {
+                    hitpoint2 = pointer.pointerRenderer.GetDestinationHit().point;// point d'impact
+                    sphere2 = GameObject.Instantiate(HitPointSphere, hitpoint2, new Quaternion());// création de la spère au point d'impact
+                    sphere2.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère                             
+                    secondHit = true;
+                    dist = Vector3.Distance(hitpoint1, hitpoint2);// calcul de la distance entre les deux spères
+                    ShowLaser();
+                    return;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning(e.Message);
         }
     }
 

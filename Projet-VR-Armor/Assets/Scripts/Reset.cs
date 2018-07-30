@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
@@ -24,7 +25,18 @@ public class Reset : MonoBehaviour
 
     private SteamVR_Controller.Device Controller
     {
-        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+        get
+        {
+            try
+            {
+                return SteamVR_Controller.Input((int)trackedObj.index);
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 
     void Awake()
@@ -94,34 +106,40 @@ public class Reset : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Controller.GetPressDown(ButtonULong))//si appui
+        try
         {
-
-            for (int i = 0; i < allObjectsInteractable.Length; i++)
+            if (Controller.GetPressDown(ButtonULong))//si appui
             {
-                allObjectsInteractable[i].GetComponent<Rigidbody>().isKinematic = true;//désactivation de la physique pour éviter qu'un object en mouvement reste en mouvement apres son reset
-                allObjectsInteractable[i].gameObject.transform.position = positionInitial[i];//Reset
-            }
 
-            for (int i = 0; i < allObjectsAnimation.Length; i++)
+                for (int i = 0; i < allObjectsInteractable.Length; i++)
+                {
+                    allObjectsInteractable[i].GetComponent<Rigidbody>().isKinematic = true;//désactivation de la physique pour éviter qu'un object en mouvement reste en mouvement apres son reset
+                    allObjectsInteractable[i].gameObject.transform.position = positionInitial[i];//Reset
+                }
+
+                for (int i = 0; i < allObjectsAnimation.Length; i++)
+                {
+                    allObjectsAnimation[i].gameObject.transform.rotation = positionInitialAnim[i];
+                }
+
+                for (int i = 0; i < allObjectsTooltip.Length; i++)
+                {
+                    allObjectsTooltip[i].GetComponent<Renderer>().material = allObjectsTooltip[i].GetOriginMaterial();
+                    allObjectsTooltip[i].GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+                }
+
+            }
+            if (Controller.GetPressUp(ButtonULong))//si relache
             {
-                allObjectsAnimation[i].gameObject.transform.rotation = positionInitialAnim[i];
+                for (int i = 0; i < allObjectsInteractable.Length; i++)
+                {
+                    allObjectsInteractable[i].GetComponent<Rigidbody>().isKinematic = false;//re-activation de la physique
+                }
             }
-
-            for (int i = 0; i < allObjectsTooltip.Length; i++)
-            {
-                allObjectsTooltip[i].GetComponent<Renderer>().material = allObjectsTooltip[i].GetOriginMaterial();
-                allObjectsTooltip[i].GetComponent<Renderer>().material.shader = Shader.Find("Standard");
-            }
-
         }
-        if (Controller.GetPressUp(ButtonULong))//si relache
+        catch (Exception e)
         {
-            for (int i = 0; i < allObjectsInteractable.Length; i++)
-            {
-                allObjectsInteractable[i].GetComponent<Rigidbody>().isKinematic = false;//re-activation de la physique
-            }
+            Debug.LogWarning(e.Message);
         }
     }
 

@@ -10,7 +10,7 @@ public class AffichageToolTip : MonoBehaviour
 
 
     [Header("Affichage des informations")]
-    public VRTK_ControllerTooltips Tooltip;//Tooltip servant à l'affichage
+    public VRTK_ObjectTooltip Tooltip;//Tooltip servant à l'affichage
     public string textAffichage;//information à afficher
 
 
@@ -41,7 +41,9 @@ public class AffichageToolTip : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.TriggerTooltip, textAffichage);//on affiche les informations
+        Tooltip.containerColor.a = 255;
+        Tooltip.UpdateText(textAffichage);
+        //Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.TriggerTooltip, textAffichage);//on affiche les informations
         Parent = transform.root.gameObject;//on recupère le gameobject parent dans la hierarchie
         allChildren = Parent.GetComponentsInChildren<Renderer>();//Récupération des objets du modele
 

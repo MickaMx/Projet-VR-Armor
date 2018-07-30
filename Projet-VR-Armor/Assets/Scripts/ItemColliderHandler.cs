@@ -65,14 +65,14 @@ public class ItemColliderHandler : MonoBehaviour {
                         allChildren[i].GetComponent<Renderer>().material.shader = Shader.Find("Standard");  //Remise au matériel initial
                         allChildren[i].GetComponent<Renderer>().material.SetFloat("_Mode", 2);              //
                         istransparent[i] = false;                                                           //
-                        Parent.GetComponent<IsOnFocus>().isOnFocus = false;                                 //
+                        //Parent.GetComponent<IsOnFocus>().isOnFocus = false;                                 //
                     }
                     else//Si opaque
                     {
                         allChildren[i].GetComponent<Renderer>().material.shader= Shader.Find("Legacy Shaders/Transparent/Diffuse");//On met le matériel à transparent
                         allChildren[i].GetComponent<Renderer>().material = Transparent;
                         istransparent[i] = true;
-                        Parent.GetComponent<IsOnFocus>().isOnFocus = true;
+                        //Parent.GetComponent<IsOnFocus>().isOnFocus = true;
                     }
                 }
                 else//Si c'est l'object d'origin
@@ -84,14 +84,14 @@ public class ItemColliderHandler : MonoBehaviour {
                         allChildren[i].GetComponent<Renderer>().material.shader = Shader.Find("Standard");
                         allChildren[i].GetComponent<Renderer>().material.SetFloat("_Mode", 2);
                         istransparent[i] = false;
-                        Parent.GetComponent<IsOnFocus>().isOnFocus = false;
+                        //Parent.GetComponent<IsOnFocus>().isOnFocus = false;
                     }
                     else//Changement du matériel par celui prévue 
                     {
                         allChildren[i].GetComponent<Renderer>().material.shader = Shader.Find("Legacy Shaders/Transparent/Diffuse");
                         allChildren[i].GetComponent<Renderer>().material = ToHighlight;
                         istransparent[i] = true;
-                        Parent.GetComponent<IsOnFocus>().isOnFocus = true;
+                        //Parent.GetComponent<IsOnFocus>().isOnFocus = true;
                     }
                 }
             }
@@ -102,21 +102,21 @@ public class ItemColliderHandler : MonoBehaviour {
 
     void OnMouseEnter()
     {
-        if(!Parent.GetComponent<IsOnFocus>().isOnFocus)//Si le modèle n'est pas transparent
+        /*if(!Parent.GetComponent<IsOnFocus>().isOnFocus)//Si le modèle n'est pas transparent
         {
             for (int i = 0; i < mr.materials.Length; i++)
             if (mr.materials[i].HasProperty("_Color")) // on check le material, car certains n'ont pas d'attribut "Color"
                 mr.materials[i].SetColor("_Color", callOutColor);
-        }
+        }*/
     }
 
     void OnMouseExit()
     {
-        if (!Parent.GetComponent<IsOnFocus>().isOnFocus)//Si le modèle n'est pas transparent
+       /* if (!Parent.GetComponent<IsOnFocus>().isOnFocus)//Si le modèle n'est pas transparent
         {
             for (int i = 0; i < mr.materials.Length; i++)
                 if (mr.materials[i].HasProperty("_Color")) // on check le material, car certains n'ont pas d'attribut "Color"
                     mr.materials[i].SetColor("_Color", originColors[i]); // on restaure la bonne originColor correspondante
-        }                   
+        } */                  
     }
 }

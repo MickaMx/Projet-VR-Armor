@@ -43,7 +43,7 @@ public class CalculDist : MonoBehaviour
     bool secondHit;
     Vector3 hitpoint1;  //Coordonnées des points d'impacts
     Vector3 hitpoint2;
-    GameObject sphere2; //Matérialisation du point d'impact
+    GameObject sphere2; //Matérialisation des points d'impacts
     GameObject sphere1;
     // Use this for initialization
 
@@ -59,7 +59,7 @@ public class CalculDist : MonoBehaviour
 
     void Start()
     {
-        laser = Instantiate(laserPrefab);
+        laser = Instantiate(laserPrefab);//instantiate des lasers
         laserTransform = laser.transform;
         laserX = Instantiate(laserXPrefab);
         laserTransformX = laserX.transform;
@@ -83,7 +83,7 @@ public class CalculDist : MonoBehaviour
         {
             if (!firstHit)//si premier tir
             {
-                laser.SetActive(false);
+                laser.SetActive(false);//on cache les lasers
                 laserX.SetActive(false);
                 laserY.SetActive(false);
                 DestroyObject(sphere1);//Destruction des anciennes sphères

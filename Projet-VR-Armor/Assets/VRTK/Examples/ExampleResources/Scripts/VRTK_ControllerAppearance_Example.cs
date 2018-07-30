@@ -184,7 +184,7 @@
             {
                 if (highlightBodyOnlyOnCollision)
                 {
-                    highligher.HighlightElement(SDK_BaseController.ControllerElements.Body, highlightColor, highlightTimer);
+                    //highligher.HighlightElement(SDK_BaseController.ControllerElements.Body, highlightColor, highlightTimer);
                 }
                 else
                 {
@@ -200,7 +200,7 @@
             {
                 if (highlightBodyOnlyOnCollision)
                 {
-                    highligher.UnhighlightElement(SDK_BaseController.ControllerElements.Body);
+                    //highligher.UnhighlightElement(SDK_BaseController.ControllerElements.Body);
                 }
                 else
                 {

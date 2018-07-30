@@ -24,6 +24,8 @@ ModelImporter:
     100032: CondensatMaintenance
     100034: Pompe
     100036: CondensatMaintenance2
+    100038: CuveSolvantD
+    100040: CuveSolvantG
     400000: Condensat
     400002: CouvercleD
     400004: CouvercleG
@@ -43,6 +45,8 @@ ModelImporter:
     400032: CondensatMaintenance
     400034: Pompe
     400036: CondensatMaintenance2
+    400038: CuveSolvantD
+    400040: CuveSolvantG
     2100000: 01 - Default
     2300000: Condensat
     2300002: CouvercleD
@@ -62,6 +66,8 @@ ModelImporter:
     2300030: CondensatMaintenance
     2300032: Pompe
     2300034: CondensatMaintenance2
+    2300036: CuveSolvantD
+    2300038: CuveSolvantG
     3300000: Condensat
     3300002: CouvercleD
     3300004: CouvercleG
@@ -80,6 +86,8 @@ ModelImporter:
     3300030: CondensatMaintenance
     3300032: Pompe
     3300034: CondensatMaintenance2
+    3300036: CuveSolvantD
+    3300038: CuveSolvantG
     4300000: Condensat
     4300002: Cuve
     4300004: "Eau glac\xE9e all\xE9"
@@ -98,6 +106,8 @@ ModelImporter:
     4300030: Pompe
     4300032: CondensatMaintenance
     4300034: CondensatMaintenance2
+    4300036: CuveSolvantG
+    4300038: CuveSolvantD
   externalObjects: {}
   materials:
     importMaterials: 1

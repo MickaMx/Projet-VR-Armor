@@ -5,7 +5,7 @@ Le laser du **Trackpad de la manette droite** est utile pour calculer des distan
 Lors d'un appui sur la **gachette gauche**, toute la scène est réinitialiser et en cas d'appui du **bouton menu gauche**, c'est la caméra qui est remise à sa position initiale.
 Finalement deux boutons sont positionner sur la plateform. Ceux-ci permettent de lancer les animations d'ouvertures et de fermetures des cuves.
 
-##Résumé
+## Résumé
 
 - Manette Droite
   - Gachette: Mise en valeur

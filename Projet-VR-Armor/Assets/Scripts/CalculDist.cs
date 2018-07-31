@@ -59,7 +59,6 @@ public class CalculDist : MonoBehaviour
             }
             catch (Exception e)
             {
-                Debug.LogWarning(e.Message);
                 return null;
             }
         }

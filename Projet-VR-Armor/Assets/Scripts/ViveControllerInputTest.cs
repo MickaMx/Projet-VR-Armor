@@ -24,8 +24,20 @@ using UnityEngine;
 
 public class ViveControllerInputTest : MonoBehaviour
 {
-    public bool GripRealease;
+    public bool ApplicationMenu;
+    public bool Grip;
+    public bool Touchpad;
+    public bool Trigger;
+
     private SteamVR_TrackedObject trackedObj;
+
+    public enum Boutton
+    {
+        ApplicationMenu,
+        Grip,
+        Touchpad,
+        Trigger
+    };
 
 
     private SteamVR_Controller.Device Controller
@@ -40,30 +52,45 @@ public class ViveControllerInputTest : MonoBehaviour
 
     private void Update()
     {
-        if (Controller.GetAxis() != Vector2.zero)
-        {
-            //Debug.Log(gameObject.name + Controller.GetAxis());
-        }
-
-        if (Controller.GetHairTriggerDown())
-        {
-            //Debug.Log(gameObject.name + " Trigger Press");
-        }
-
-        if (Controller.GetHairTriggerUp())
-        {
-            //Debug.Log(gameObject.name + " Trigger Release");
-
-        }
 
         if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
         {
-            //Debug.Log(gameObject.name + " Grip Press");
+            Grip = true;
         }
 
         if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
         {
-            //Debug.Log(gameObject.name + " Grip Release");
+            Grip = false;
+        }
+
+        if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            Trigger = true;
+        }
+
+        if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            Trigger = false;
+        }
+
+        if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
+        {
+            Touchpad = true;
+        }
+
+        if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
+        {
+            Touchpad = false;
+        }
+
+        if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
+        {
+            ApplicationMenu = true;
+        }
+
+        if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.ApplicationMenu))
+        {
+            ApplicationMenu = false;
         }
     }
 }

@@ -58,7 +58,7 @@ public class ItemColliderHandler : MonoBehaviour {
             {
                 if(allChildren[i].tag!= "Origin")//Si ce n'est pas l'origine
                 {
-                    Renderer rd = allChildren[i].gameObject.GetComponent<Renderer>();
+                    //Renderer rd = allChildren[i].gameObject.GetComponent<Renderer>();
                     if (istransparent[i])//Si il est transparent
                     {
                         allChildren[i].GetComponent<Renderer>().material = materials[i];                    //
@@ -77,7 +77,7 @@ public class ItemColliderHandler : MonoBehaviour {
                 }
                 else//Si c'est l'object d'origin
                 {
-                    Renderer rd = allChildren[i].gameObject.GetComponent<Renderer>();
+                    //Renderer rd = allChildren[i].gameObject.GetComponent<Renderer>();
                     if (istransparent[i])//Remise au matériel initial
                     {
                         allChildren[i].GetComponent<Renderer>().material = materials[i];

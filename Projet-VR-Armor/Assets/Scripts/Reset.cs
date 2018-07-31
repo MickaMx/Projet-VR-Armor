@@ -10,79 +10,23 @@ using VRTK;
 public class Reset : MonoBehaviour
 {
     [Header("Input")]
-    public Buttonreset Button = Buttonreset.ApplicationMenu;
     public ViveControllerInputTest LeftController;
+    public ViveControllerInputTest.Boutton Button;
 
-    private int ButtonInt;
-    private ulong ButtonULong;
     private VRTK_InteractableObject[] allObjectsInteractable;
     private AffichageToolTip[] allObjectsTooltip;
     private Vector3[] positionInitial;
     private Quaternion[] positionInitialAnim;
     private Animation[] allObjectsAnimation;
-    private SteamVR_TrackedObject trackedObj;
+    private bool flag = true;
+    private bool boolButton;
 
 
-    private SteamVR_Controller.Device Controller
-    {
-        get
-        {
-            try
-            {
-                return SteamVR_Controller.Input((int)trackedObj.index);
 
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-    }
-
-    void Awake()
-    {
-        trackedObj = LeftController.GetComponent<SteamVR_TrackedObject>();
-    }
 
     // Use this for initialization
     void Start()
-    {
-        ButtonInt = (int)Button;
-
-        switch (ButtonInt)//Selection du boutton 
-        {
-            case 0:
-                ButtonULong = (1ul << (int)EVRButtonId.k_EButton_System);
-                break;
-            case 1:
-                ButtonULong = (1ul << (int)EVRButtonId.k_EButton_ApplicationMenu);
-                break;
-            case 2:
-                ButtonULong = (1ul << (int)EVRButtonId.k_EButton_Axis0);
-                break;
-            case 3:
-                ButtonULong = (1ul << (int)EVRButtonId.k_EButton_Axis1);
-                break;
-            case 4:
-                ButtonULong = (1ul << (int)EVRButtonId.k_EButton_Axis2);
-                break;
-            case 5:
-                ButtonULong = (1ul << (int)EVRButtonId.k_EButton_Axis3);
-                break;
-            case 6:
-                ButtonULong = (1ul << (int)EVRButtonId.k_EButton_Axis4);
-                break;
-            case 7:
-                ButtonULong = (1ul << (int)EVRButtonId.k_EButton_Grip);
-                break;
-            case 8:
-                ButtonULong = (1ul << (int)EVRButtonId.k_EButton_SteamVR_Touchpad);
-                break;
-            case 9:
-                ButtonULong = (1ul << (int)EVRButtonId.k_EButton_SteamVR_Trigger);
-                break;
-
-        }
+    {        
         //Création des tableaux d'objects
         allObjectsInteractable = FindObjectsOfType<VRTK_InteractableObject>() as VRTK_InteractableObject[];
         allObjectsTooltip = FindObjectsOfType<AffichageToolTip>() as AffichageToolTip[];
@@ -108,9 +52,26 @@ public class Reset : MonoBehaviour
     {
         try
         {
-            if (Controller.GetPressDown(ButtonULong))//si appui
-            {
 
+            switch ((int)Button)
+            {
+                case 0:
+                    boolButton = LeftController.ApplicationMenu;
+                    break;
+                case 1:
+                    boolButton = LeftController.Grip;
+                    break;
+                case 2:
+                    boolButton = LeftController.Touchpad;
+                    break;
+                case 3:
+                    boolButton = LeftController.Trigger;
+                    break;
+            }
+
+            if (LeftController.Trigger && flag)//si appui
+            {
+                flag = false;
                 for (int i = 0; i < allObjectsInteractable.Length; i++)
                 {
                     allObjectsInteractable[i].GetComponent<Rigidbody>().isKinematic = true;//désactivation de la physique pour éviter qu'un object en mouvement reste en mouvement apres son reset
@@ -129,8 +90,9 @@ public class Reset : MonoBehaviour
                 }
 
             }
-            if (Controller.GetPressUp(ButtonULong))//si relache
+            if (!LeftController.Trigger && !flag)//si relache
             {
+                flag = true;
                 for (int i = 0; i < allObjectsInteractable.Length; i++)
                 {
                     allObjectsInteractable[i].GetComponent<Rigidbody>().isKinematic = false;//re-activation de la physique

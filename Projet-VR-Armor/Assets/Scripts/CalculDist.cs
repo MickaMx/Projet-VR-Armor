@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VRTK;
 
-//Script servant a calculer la distance entre deux points
+//Script servant a calculer la distance entre deux points. Les distances X et Y sont les valeurs des écarts verticaux et horizontaux entre les deux points.
 
 public class CalculDist : MonoBehaviour
 {
@@ -25,10 +25,10 @@ public class CalculDist : MonoBehaviour
     public Text AffPre;
 
     [Header("Input")]
+    public ViveControllerInputTest.Boutton Button;
     public ViveControllerInputTest RightController;
     public VRTK_Pointer pointer;
 
-    private SteamVR_TrackedObject trackedObj;
     private GameObject laser; //Laser à instancier
     private GameObject laserX;
     private GameObject laserY;
@@ -39,40 +39,19 @@ public class CalculDist : MonoBehaviour
     private float distX;
     private float distY;
 
-
-    bool firstHit;  //Flag pour la succession de la selection des points.
-    bool secondHit;
-    Vector3 hitpoint1;  //Coordonnées des points d'impacts
-    Vector3 hitpoint2;
-    GameObject sphere2; //Matérialisation des points d'impacts
-    GameObject sphere1;
-    // Use this for initialization
-
-    private SteamVR_Controller.Device Controller
-    {
-        get
-        {
-            try
-            {
-                return SteamVR_Controller.Input((int)trackedObj.index);
-
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-    }
+    private bool boolButton;
+    private bool firstHit;  //Flag pour la succession de la selection des points.
+    private bool secondHit;
+    private bool flag;
+    private Vector3 hitpoint1;  //Coordonnées des points d'impacts
+    private Vector3 hitpoint2;
+    private GameObject sphere2; //Matérialisation des points d'impacts
+    private GameObject sphere1;
 
 
-    void Awake()
-    {
-        trackedObj = RightController.GetComponent<SteamVR_TrackedObject>();
-    }
 
     void Start()
     {
-
         laser = Instantiate(laserPrefab);//instantiate des lasers
         laserTransform = laser.transform;
         laserX = Instantiate(laserXPrefab);
@@ -81,6 +60,7 @@ public class CalculDist : MonoBehaviour
         laserTransformY = laserY.transform;
         firstHit = false;
         secondHit = false;
+        flag = false;
     }
 
     // Update is called once per frame
@@ -89,6 +69,21 @@ public class CalculDist : MonoBehaviour
         try
         {
 
+            switch ((int)Button)
+            {
+                case 0:
+                    boolButton = RightController.ApplicationMenu;
+                    break;
+                case 1:
+                    boolButton = RightController.Grip;
+                    break;
+                case 2:
+                    boolButton = RightController.Touchpad;
+                    break;
+                case 3:
+                    boolButton = RightController.Trigger;
+                    break;
+            }
 
             if (firstHit && secondHit)//Actif quand deux tirs ont été réalisé
             {
@@ -97,8 +92,9 @@ public class CalculDist : MonoBehaviour
                 hitpoint1 = new Vector3();
                 hitpoint2 = new Vector3();
             }
-            if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))//Si on relache le touchpad de la manette
+            if (!RightController.Touchpad && !flag)//Si on relache le touchpad de la manette
             {
+                flag = true;
                 if (!firstHit)//si premier tir
                 {
                     laser.SetActive(false);//on cache les lasers
@@ -124,6 +120,10 @@ public class CalculDist : MonoBehaviour
                     return;
                 }
             }
+            if (RightController.Touchpad && flag)//Si on appuie sur le touchpad de la manette
+            {
+                flag = false;
+            }
         }
         catch (Exception e)
         {
@@ -139,6 +139,7 @@ public class CalculDist : MonoBehaviour
         laserTransform.localScale = new Vector3(laserTransform.localScale.x, laserTransform.localScale.y, dist);
 
         Vector3 ThirdPoint; //point servant a afficher les axes vertical et horizontal
+
         if (hitpoint1.y < hitpoint2.y)//si le deuxième point est plus haut que le premier
         {
             ThirdPoint = hitpoint2;

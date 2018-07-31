@@ -309,10 +309,10 @@ MonoBehaviour:
   containerSize: {x: 70, y: 10}
   drawLineFrom: {fileID: 0}
   drawLineTo: {fileID: 0}
-  lineWidth: 0.01
+  lineWidth: 0
   fontColor: {r: 0.9780493, g: 0.99264705, b: 0, a: 1}
   containerColor: {r: 0, g: 0, b: 0, a: 1}
-  lineColor: {r: 0.26666668, g: 0.38039216, b: 0.2784314, a: 1}
+  lineColor: {r: 0.26666668, g: 0.38039216, b: 0.2784314, a: 0}
   alwaysFaceHeadset: 0
 --- !u!114 &114843234503045328
 MonoBehaviour:

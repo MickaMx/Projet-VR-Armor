@@ -16,4 +16,3 @@ Finalement deux boutons sont positionner sur la plateform. Ceux-ci permettent de
   - **Trackpad**: Téléportation
   - **Grip**: Saisir  
   - **Bouton menu**: Reset de la caméra
-

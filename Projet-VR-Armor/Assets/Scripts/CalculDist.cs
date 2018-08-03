@@ -7,8 +7,12 @@ using VRTK;
 
 //Script servant a calculer la distance entre deux points. Les distances X et Y sont les valeurs des écarts verticaux et horizontaux entre les deux points.
 
-public class CalculDist : MonoBehaviour
+public class CalculDist : MasterScript
 {
+    public ViveControllerInputTest RightController;
+    public VRTK_Pointer pointer;
+    //public bool boolButton;
+
     [Header("Prefab des lasers")]
     public GameObject laserPrefab;//préfab des laser contenant des objects tooltip pour l'affichage des valeurs
     public GameObject laserXPrefab;
@@ -24,10 +28,7 @@ public class CalculDist : MonoBehaviour
     public Text AffPreY;
     public Text AffPre;
 
-    [Header("Input")]
-    public ViveControllerInputTest.Boutton Button;
-    public ViveControllerInputTest RightController;
-    public VRTK_Pointer pointer;
+
 
     private GameObject laser; //Laser à instancier
     private GameObject laserX;
@@ -39,7 +40,7 @@ public class CalculDist : MonoBehaviour
     private float distX;
     private float distY;
 
-    private bool boolButton;
+
     private bool firstHit;  //Flag pour la succession de la selection des points.
     private bool secondHit;
     private bool flag;
@@ -69,21 +70,21 @@ public class CalculDist : MonoBehaviour
         try
         {
 
-            switch ((int)Button)
-            {
-                case 0:
-                    boolButton = RightController.ApplicationMenu;
-                    break;
-                case 1:
-                    boolButton = RightController.Grip;
-                    break;
-                case 2:
-                    boolButton = RightController.Touchpad;
-                    break;
-                case 3:
-                    boolButton = RightController.Trigger;
-                    break;
-            }
+            /* switch ((int)Button)
+             {
+                 case 0:
+                     boolButton = RightController.ApplicationMenu;
+                     break;
+                 case 1:
+                     boolButton = RightController.Grip;
+                     break;
+                 case 2:
+                     boolButton = RightController.Touchpad;
+                     break;
+                 case 3:
+                     boolButton = RightController.Trigger;
+                     break;
+             }*/
 
             if (firstHit && secondHit)//Actif quand deux tirs ont été réalisé
             {
@@ -92,7 +93,7 @@ public class CalculDist : MonoBehaviour
                 hitpoint1 = new Vector3();
                 hitpoint2 = new Vector3();
             }
-            if (!RightController.Touchpad && !flag)//Si on relache le touchpad de la manette
+            if (!boolButton && !flag)//Si on relache le touchpad de la manette
             {
                 flag = true;
                 if (!firstHit)//si premier tir

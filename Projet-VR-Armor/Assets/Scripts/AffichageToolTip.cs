@@ -14,10 +14,10 @@ public class AffichageToolTip : MonoBehaviour
     public string textAffichage;//information à afficher
 
 
-    Material TransparentMaterial;//Matériel transparent
+    private Material TransparentMaterial;//Matériel transparent
+    private GameObject Parent;//Objet initial du modèle
+    private Renderer[] allChildren;//Tableau d'objet contenant tout le modèle
     protected Material OriginMaterial;//matériel de la pièce
-    GameObject Parent;//Objet initial du modèle
-    Renderer[] allChildren;//Tableau d'objet contenant tout le modèle
 
 
     // Use this for initialization
@@ -33,17 +33,16 @@ public class AffichageToolTip : MonoBehaviour
     {
         OriginMaterial = this.GetComponent<MeshRenderer>().material;//récupération du matériel initial
         TransparentMaterial = Resources.Load("Transparent", typeof(Material)) as Material;//récupération du matériel transparent
-    }
+}
 
 
 
 
 
-    public void OnTriggerEnter(Collider other)
+public void OnTriggerEnter(Collider other)
     {
         Tooltip.containerColor.a = 255;
-        Tooltip.UpdateText(textAffichage);
-        //Tooltip.UpdateText(VRTK_ControllerTooltips.TooltipButtons.TriggerTooltip, textAffichage);//on affiche les informations
+        Tooltip.UpdateText(textAffichage);//on affiche les informations
         Parent = transform.root.gameObject;//on recupère le gameobject parent dans la hierarchie
         allChildren = Parent.GetComponentsInChildren<Renderer>();//Récupération des objets du modele
 
@@ -55,7 +54,6 @@ public class AffichageToolTip : MonoBehaviour
             {
                 if (allChildren[i].tag != "Origin")//Si ce n'est pas l'origine on le rend transparent
                 {
-                    allChildren[i].material.shader = Shader.Find("Standard");
                     allChildren[i].material = TransparentMaterial;
                 }
             }
@@ -69,7 +67,6 @@ public class AffichageToolTip : MonoBehaviour
         for (int i = 0; i < allChildren.Length; i++)//On parcours tout les objets du modèle pour leurs rendre leurs aspects initiales
         {
             allChildren[i].material = allChildren[i].GetComponent<AffichageToolTip>().OriginMaterial;//Remise au matériel initial
-            allChildren[i].material.shader = Shader.Find("Standard");
         }
     }
 

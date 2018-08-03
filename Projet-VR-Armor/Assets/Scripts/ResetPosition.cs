@@ -7,12 +7,10 @@ using Valve.VR;
 
 
 //ce script permet en cas d'appuie sur le boutton selectionner de changer la position du casque suivant les coordonnées x,y,z.
-public class ResetPosition : MonoBehaviour
+public class ResetPosition : MasterScript
 {
 
-    [Header("Input")]
     public ViveControllerInputTest LeftController;
-    public ViveControllerInputTest.Boutton Button;
 
     [Header("Paramètres")]
     public Transform cameraRigTransform;
@@ -21,7 +19,7 @@ public class ResetPosition : MonoBehaviour
     public float y;
     public float z;
 
-    private bool boolButton;
+   // private bool boolButton;
 
 
 
@@ -37,7 +35,7 @@ public class ResetPosition : MonoBehaviour
     {
         try
         {
-            switch ((int)Button)
+            /*switch ((int)Button)
             {
                 case 0:
                     boolButton = LeftController.ApplicationMenu;
@@ -51,7 +49,7 @@ public class ResetPosition : MonoBehaviour
                 case 3:
                     boolButton = LeftController.Trigger;
                     break;
-            }
+            }*/
 
             if (LeftController.ApplicationMenu)
             {

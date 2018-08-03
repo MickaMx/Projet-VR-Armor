@@ -7,11 +7,9 @@ using VRTK;
 
 //ce script permet en cas d'appuie sur le boutton selectionner de remettre tous les objects déplacables a leurs positions initiales. 
 
-public class Reset : MonoBehaviour
+public class Reset : MasterScript
 {
-    [Header("Input")]
     public ViveControllerInputTest LeftController;
-    public ViveControllerInputTest.Boutton Button;
 
     private VRTK_InteractableObject[] allObjectsInteractable;
     private AffichageToolTip[] allObjectsTooltip;
@@ -19,7 +17,7 @@ public class Reset : MonoBehaviour
     private Quaternion[] positionInitialAnim;
     private Animation[] allObjectsAnimation;
     private bool flag = true;
-    private bool boolButton;
+    //private bool boolButton;
 
 
 
@@ -52,23 +50,6 @@ public class Reset : MonoBehaviour
     {
         try
         {
-
-            switch ((int)Button)
-            {
-                case 0:
-                    boolButton = LeftController.ApplicationMenu;
-                    break;
-                case 1:
-                    boolButton = LeftController.Grip;
-                    break;
-                case 2:
-                    boolButton = LeftController.Touchpad;
-                    break;
-                case 3:
-                    boolButton = LeftController.Trigger;
-                    break;
-            }
-
             if (LeftController.Trigger && flag)//si appui
             {
                 flag = false;

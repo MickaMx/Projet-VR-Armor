@@ -20,6 +20,7 @@
  * THE SOFTWARE.
  */
 
+using System.Collections;
 using UnityEngine;
 
 public class ViveControllerInputTest : MonoBehaviour
@@ -29,7 +30,10 @@ public class ViveControllerInputTest : MonoBehaviour
     public bool Touchpad;
     public bool Trigger;
 
+    public MasterScript[] Listeners;
+
     private SteamVR_TrackedObject trackedObj;
+    private int Length;
 
     public enum Boutton
     {
@@ -48,6 +52,7 @@ public class ViveControllerInputTest : MonoBehaviour
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
+        Length = Listeners.Length;
     }
 
     private void Update()
@@ -56,41 +61,74 @@ public class ViveControllerInputTest : MonoBehaviour
         if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
         {
             Grip = true;
+            StartCoroutine("ChangeInput");
         }
 
         if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
         {
             Grip = false;
+            StartCoroutine("ChangeInput");
         }
 
         if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
         {
             Trigger = true;
+            StartCoroutine("ChangeInput");
         }
 
         if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
         {
             Trigger = false;
+            StartCoroutine("ChangeInput");
         }
 
         if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
         {
             Touchpad = true;
+            StartCoroutine("ChangeInput");
         }
 
         if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
         {
             Touchpad = false;
+            StartCoroutine("ChangeInput");
         }
 
         if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
         {
             ApplicationMenu = true;
+            StartCoroutine("ChangeInput");
         }
 
         if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.ApplicationMenu))
         {
             ApplicationMenu = false;
+            StartCoroutine("ChangeInput");
         }
+
+       
+
+    }
+    IEnumerator ChangeInput()
+    {
+        for (int i = 0; i < Length; i++)
+        {
+            switch ((int)Listeners[i].Button)
+            {
+                case 0:
+                    Listeners[i].boolButton = ApplicationMenu;
+                    break;
+                case 1:
+                    Listeners[i].boolButton = Grip;
+                    break;
+                case 2:
+                    Listeners[i].boolButton = Touchpad;
+                    break;
+                case 3:
+                    Listeners[i].boolButton = Trigger;
+                    break;
+            }
+        }
+        yield return null;
     }
 }

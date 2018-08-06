@@ -1590,7 +1590,7 @@ GameObject:
   - component: {fileID: 114942654461715982}
   m_Layer: 0
   m_Name: Controller (right)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3129,8 +3129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc93daef0e0538498f39b6ee9012f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftController: {fileID: 114454359136646366}
+  boolButton: 0
   Button: 0
+  LeftController: {fileID: 114454359136646366}
   cameraRigTransform: {fileID: 4627406281075504}
   HeadTransform: {fileID: 4154230424543188}
   x: -4.979447
@@ -3478,8 +3479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cd2ccdf61fbf341a0007c4078233c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftController: {fileID: 114454359136646366}
+  boolButton: 0
   Button: 3
+  LeftController: {fileID: 114454359136646366}
 --- !u!114 &114252844590800064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4190,6 +4192,9 @@ MonoBehaviour:
   Grip: 0
   Touchpad: 0
   Trigger: 0
+  Listeners:
+  - {fileID: 114245866791649230}
+  - {fileID: 114129570083412724}
 --- !u!114 &114468889189606656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5322,6 +5327,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4236740623ede4f85091e1ef60e302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boolButton: 0
+  Button: 2
+  RightController: {fileID: 114942654461715982}
+  Pointer: {fileID: 0}
   laserPrefab: {fileID: 1834492304672618, guid: 2f1b441c6d52e6c46a055f2ee8fb3a03,
     type: 2}
   laserXPrefab: {fileID: 1982575379609462, guid: a17ab24f1cda12a43b9ec70edea9842c,
@@ -5335,9 +5344,6 @@ MonoBehaviour:
   AffPreX: {fileID: 0}
   AffPreY: {fileID: 0}
   AffPre: {fileID: 0}
-  Button: 2
-  RightController: {fileID: 114942654461715982}
-  pointer: {fileID: 114284720575950340}
 --- !u!114 &114841194744356246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5604,6 +5610,8 @@ MonoBehaviour:
   Grip: 0
   Touchpad: 0
   Trigger: 0
+  Listeners:
+  - {fileID: 114830782500308886}
 --- !u!114 &114946000367388230
 MonoBehaviour:
   m_ObjectHideFlags: 1

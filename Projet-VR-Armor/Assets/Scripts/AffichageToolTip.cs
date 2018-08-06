@@ -10,8 +10,10 @@ public class AffichageToolTip : MonoBehaviour
 
 
     [Header("Affichage des informations")]
-    public VRTK_ObjectTooltip Tooltip;//Tooltip servant à l'affichage
-    public string textAffichage;//information à afficher
+    [Tooltip("Tooltip servant à l'affichage")]
+    public VRTK_ObjectTooltip Tooltip;
+    [Tooltip("information à afficher")]
+    public string textAffichage;
 
 
     private Material TransparentMaterial;//Matériel transparent
@@ -33,13 +35,13 @@ public class AffichageToolTip : MonoBehaviour
     {
         OriginMaterial = this.GetComponent<MeshRenderer>().material;//récupération du matériel initial
         TransparentMaterial = Resources.Load("Transparent", typeof(Material)) as Material;//récupération du matériel transparent
-}
+    }
 
 
 
 
 
-public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         Tooltip.containerColor.a = 255;
         Tooltip.UpdateText(textAffichage);//on affiche les informations
@@ -55,6 +57,10 @@ public void OnTriggerEnter(Collider other)
                 if (allChildren[i].tag != "Origin")//Si ce n'est pas l'origine on le rend transparent
                 {
                     allChildren[i].material = TransparentMaterial;
+                }
+                if (allChildren[i].tag == "Origin")//Si c'est l'origine on lui rend son material de base.
+                {
+                    allChildren[i].material = this.OriginMaterial;
                 }
             }
             tag = "Highlight";//on remet le bon tag

@@ -9,23 +9,33 @@ using VRTK;
 
 public class CalculDist : MasterScript
 {
+    [Tooltip("Manette à suivre pour les appuis sur bouton")]
     public ViveControllerInputTest RightController;
-    public VRTK_Pointer pointer;
-    //public bool boolButton;
+    [Tooltip("Pointer pour la position des points")]
+    public VRTK_Pointer Pointer;
 
     [Header("Prefab des lasers")]
-    public GameObject laserPrefab;//préfab des laser contenant des objects tooltip pour l'affichage des valeurs
+    [Tooltip("préfab des lasers contenant des objects tooltip pour l'affichage des valeurs")]
+    public GameObject laserPrefab;
+    [Tooltip("préfab des lasers contenant des objects tooltip pour l'affichage des valeurs")]
     public GameObject laserXPrefab;
+    [Tooltip("préfab des lasers contenant des objects tooltip pour l'affichage des valeurs")]
     public GameObject laserYPrefab;
-    public GameObject HitPointSphere; //Matérialisation du point d'impact
+    [Tooltip("Matérialisation du point d'impact")]
+    public GameObject HitPointSphere;
 
     [Header("Réglage des dimensions")]
+    [Tooltip("Remise à l'echelle des dimensions arbirtaire de Unity")]
     public float echelle;
+    [Tooltip("Taille de la sphère du point d'impact")]
     public float Taille_Sphère;
 
-    [Header("Affichage des valeurs")]//Text pour afficher les valeurs sur un canvas
+    [Header("Affichage des valeurs")]
+    [Tooltip("Text pour afficher les valeurs sur un canvas")]
     public Text AffPreX;
+    [Tooltip("Text pour afficher les valeurs sur un canvas")]
     public Text AffPreY;
+    [Tooltip("Text pour afficher les valeurs sur un canvas")]
     public Text AffPre;
 
 
@@ -70,22 +80,6 @@ public class CalculDist : MasterScript
         try
         {
 
-            /* switch ((int)Button)
-             {
-                 case 0:
-                     boolButton = RightController.ApplicationMenu;
-                     break;
-                 case 1:
-                     boolButton = RightController.Grip;
-                     break;
-                 case 2:
-                     boolButton = RightController.Touchpad;
-                     break;
-                 case 3:
-                     boolButton = RightController.Trigger;
-                     break;
-             }*/
-
             if (firstHit && secondHit)//Actif quand deux tirs ont été réalisé
             {
                 firstHit = false;//Remise a zero
@@ -104,7 +98,7 @@ public class CalculDist : MasterScript
                     DestroyObject(sphere1);//Destruction des anciennes sphères
                     DestroyObject(sphere2);
 
-                    hitpoint1 = pointer.pointerRenderer.GetDestinationHit().point;//point d'impact
+                    hitpoint1 = Pointer.pointerRenderer.GetDestinationHit().point;//point d'impact
                     sphere1 = GameObject.Instantiate(HitPointSphere, hitpoint1, new Quaternion()); // création de la spère au point d'impact
                     sphere1.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère  
                     firstHit = true;
@@ -112,7 +106,7 @@ public class CalculDist : MasterScript
                 }
                 if (firstHit && !secondHit)//si second tir
                 {
-                    hitpoint2 = pointer.pointerRenderer.GetDestinationHit().point;// point d'impact
+                    hitpoint2 = Pointer.pointerRenderer.GetDestinationHit().point;// point d'impact
                     sphere2 = GameObject.Instantiate(HitPointSphere, hitpoint2, new Quaternion());// création de la spère au point d'impact
                     sphere2.transform.localScale = new Vector3(Taille_Sphère, Taille_Sphère, Taille_Sphère);//scale de la sphère                             
                     secondHit = true;

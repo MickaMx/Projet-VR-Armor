@@ -9,19 +9,20 @@ using Valve.VR;
 //ce script permet en cas d'appuie sur le boutton selectionner de changer la position du casque suivant les coordonnées x,y,z.
 public class ResetPosition : MasterScript
 {
-
+    [Tooltip("Manette à suivre pour les appuis sur bouton")]
     public ViveControllerInputTest LeftController;
 
     [Header("Paramètres")]
+    [Tooltip("Transform de la zone de l'utilisateur")]
     public Transform cameraRigTransform;
+    [Tooltip("Transform de la position de l'utilisateur dans cette zone ")]
     public Transform HeadTransform;
+    [Tooltip("Coordonnées du reset")]
     public float x;
+    [Tooltip("Coordonnées du reset")]
     public float y;
+    [Tooltip("Coordonnées du reset")]
     public float z;
-
-   // private bool boolButton;
-
-
 
     // Use this for initialization
     void Start()
@@ -29,28 +30,11 @@ public class ResetPosition : MasterScript
     }
 
 
-
     // Update is called once per frame
     void Update()
     {
         try
         {
-            /*switch ((int)Button)
-            {
-                case 0:
-                    boolButton = LeftController.ApplicationMenu;
-                    break;
-                case 1:
-                    boolButton = LeftController.Grip;
-                    break;
-                case 2:
-                    boolButton = LeftController.Touchpad;
-                    break;
-                case 3:
-                    boolButton = LeftController.Trigger;
-                    break;
-            }*/
-
             if (LeftController.ApplicationMenu)
             {
                 Vector3 offset = cameraRigTransform.position - HeadTransform.position;//calcul de l'offset

@@ -9,6 +9,7 @@ using VRTK;
 
 public class Reset : MasterScript
 {
+    [Tooltip("Manette à suivre pour les appuis sur bouton")]
     public ViveControllerInputTest LeftController;
 
     private VRTK_InteractableObject[] allObjectsInteractable;
@@ -17,14 +18,13 @@ public class Reset : MasterScript
     private Quaternion[] positionInitialAnim;
     private Animation[] allObjectsAnimation;
     private bool flag = true;
-    //private bool boolButton;
 
 
 
 
     // Use this for initialization
     void Start()
-    {        
+    {
         //Création des tableaux d'objects
         allObjectsInteractable = FindObjectsOfType<VRTK_InteractableObject>() as VRTK_InteractableObject[];
         allObjectsTooltip = FindObjectsOfType<AffichageToolTip>() as AffichageToolTip[];
@@ -56,18 +56,17 @@ public class Reset : MasterScript
                 for (int i = 0; i < allObjectsInteractable.Length; i++)
                 {
                     allObjectsInteractable[i].GetComponent<Rigidbody>().isKinematic = true;//désactivation de la physique pour éviter qu'un object en mouvement reste en mouvement apres son reset
-                    allObjectsInteractable[i].gameObject.transform.position = positionInitial[i];//Reset
+                    allObjectsInteractable[i].gameObject.transform.position = positionInitial[i];//Reset des positions
                 }
 
                 for (int i = 0; i < allObjectsAnimation.Length; i++)
                 {
-                    allObjectsAnimation[i].gameObject.transform.rotation = positionInitialAnim[i];
+                    allObjectsAnimation[i].gameObject.transform.rotation = positionInitialAnim[i];//Reset des position
                 }
 
                 for (int i = 0; i < allObjectsTooltip.Length; i++)
                 {
-                    allObjectsTooltip[i].GetComponent<Renderer>().material = allObjectsTooltip[i].GetOriginMaterial();
-                    allObjectsTooltip[i].GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+                    allObjectsTooltip[i].GetComponent<Renderer>().material = allObjectsTooltip[i].GetOriginMaterial();//Reset des materals
                 }
 
             }

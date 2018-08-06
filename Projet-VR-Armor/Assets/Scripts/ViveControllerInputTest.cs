@@ -25,11 +25,18 @@ using UnityEngine;
 
 public class ViveControllerInputTest : MonoBehaviour
 {
+    [Header("Bools accessibles aux Listeners")]
+    [Tooltip("Bool pour le bouton Application")]
     public bool ApplicationMenu;
+    [Tooltip("Bool pour le bouton Grip")]
     public bool Grip;
+    [Tooltip("Bool pour le Touchpad")]
     public bool Touchpad;
+    [Tooltip("Bool pour la gachette")]
     public bool Trigger;
 
+    [Header("Script utilisant les bools comme Input")]
+    [Tooltip("Tableau de script dérivant de MasterScript")]
     public MasterScript[] Listeners;
 
     private SteamVR_TrackedObject trackedObj;

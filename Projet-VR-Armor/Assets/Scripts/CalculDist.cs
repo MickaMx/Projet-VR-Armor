@@ -9,8 +9,8 @@ using VRTK;
 
 public class CalculDist : MasterScript
 {
-    [Tooltip("Manette à suivre pour les appuis sur bouton")]
-    public ViveControllerInputTest RightController;
+    //[Tooltip("Manette à suivre pour les appuis sur bouton")]
+    //public ViveControllerInputTest RightController;
     [Tooltip("Pointer pour la position des points")]
     public VRTK_Pointer Pointer;
 
@@ -115,7 +115,7 @@ public class CalculDist : MasterScript
                     return;
                 }
             }
-            if (RightController.Touchpad && flag)//Si on appuie sur le touchpad de la manette
+            if (boolButton && flag)//Si on appuie sur le touchpad de la manette
             {
                 flag = false;
             }

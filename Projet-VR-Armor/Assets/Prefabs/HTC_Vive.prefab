@@ -5330,7 +5330,7 @@ MonoBehaviour:
   boolButton: 0
   Button: 2
   RightController: {fileID: 114942654461715982}
-  Pointer: {fileID: 0}
+  Pointer: {fileID: 114284720575950340}
   laserPrefab: {fileID: 1834492304672618, guid: 2f1b441c6d52e6c46a055f2ee8fb3a03,
     type: 2}
   laserXPrefab: {fileID: 1982575379609462, guid: a17ab24f1cda12a43b9ec70edea9842c,

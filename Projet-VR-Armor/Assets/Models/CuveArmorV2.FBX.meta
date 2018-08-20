@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 53961ec68fb7ee943b67d7c3d699917e
+timeCreated: 1534499663
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Condensat
+    100002: Condensat maintenance D
+    100004: Condensat maintenance G
+    100006: CouvercleD
+    100008: CouvercleG
+    100010: Cuve
+    100012: Cuve solvant D
+    100014: Cuve solvant G
+    100016: //RootNode
+    100018: "Eau glac\xE9e all\xE9"
+    100020: "Eau glac\xE9e retour"
+    100022: Evacuation anneau de pouilles
+    100024: Evacuation condenseur
+    100026: "Huile pour garniture m\xE9canique D "
+    100028: "Huile pour garniture m\xE9canique G"
+    100030: Plateform
+    100032: Pompe
+    100034: Pompe fond de cuve
+    100036: Solvant D
+    100038: Solvant G
+    100040: Tuyauterie
+    100042: Vapeur
+    400000: Condensat
+    400002: Condensat maintenance D
+    400004: Condensat maintenance G
+    400006: CouvercleD
+    400008: CouvercleG
+    400010: Cuve
+    400012: Cuve solvant D
+    400014: Cuve solvant G
+    400016: //RootNode
+    400018: "Eau glac\xE9e all\xE9"
+    400020: "Eau glac\xE9e retour"
+    400022: Evacuation anneau de pouilles
+    400024: Evacuation condenseur
+    400026: "Huile pour garniture m\xE9canique D "
+    400028: "Huile pour garniture m\xE9canique G"
+    400030: Plateform
+    400032: Pompe
+    400034: Pompe fond de cuve
+    400036: Solvant D
+    400038: Solvant G
+    400040: Tuyauterie
+    400042: Vapeur
+    2100000: 01 - Default
+    2300000: Condensat
+    2300002: Condensat maintenance D
+    2300004: Condensat maintenance G
+    2300006: CouvercleD
+    2300008: CouvercleG
+    2300010: Cuve
+    2300012: Cuve solvant D
+    2300014: Cuve solvant G
+    2300016: "Eau glac\xE9e all\xE9"
+    2300018: "Eau glac\xE9e retour"
+    2300020: Evacuation anneau de pouilles
+    2300022: Evacuation condenseur
+    2300024: "Huile pour garniture m\xE9canique D "
+    2300026: "Huile pour garniture m\xE9canique G"
+    2300028: Plateform
+    2300030: Pompe
+    2300032: Pompe fond de cuve
+    2300034: Solvant D
+    2300036: Solvant G
+    2300038: Tuyauterie
+    2300040: Vapeur
+    3300000: Condensat
+    3300002: Condensat maintenance D
+    3300004: Condensat maintenance G
+    3300006: CouvercleD
+    3300008: CouvercleG
+    3300010: Cuve
+    3300012: Cuve solvant D
+    3300014: Cuve solvant G
+    3300016: "Eau glac\xE9e all\xE9"
+    3300018: "Eau glac\xE9e retour"
+    3300020: Evacuation anneau de pouilles
+    3300022: Evacuation condenseur
+    3300024: "Huile pour garniture m\xE9canique D "
+    3300026: "Huile pour garniture m\xE9canique G"
+    3300028: Plateform
+    3300030: Pompe
+    3300032: Pompe fond de cuve
+    3300034: Solvant D
+    3300036: Solvant G
+    3300038: Tuyauterie
+    3300040: Vapeur
+    4300000: Cuve
+    4300002: Condensat
+    4300004: Condensat maintenance G
+    4300006: Condensat maintenance D
+    4300008: "Eau glac\xE9e all\xE9"
+    4300010: "Eau glac\xE9e retour"
+    4300012: Evacuation anneau de pouilles
+    4300014: Evacuation condenseur
+    4300016: "Huile pour garniture m\xE9canique D "
+    4300018: "Huile pour garniture m\xE9canique G"
+    4300020: Plateform
+    4300022: Pompe fond de cuve
+    4300024: Pompe
+    4300026: Cuve solvant D
+    4300028: Solvant D
+    4300030: Cuve solvant G
+    4300032: Solvant G
+    4300034: Tuyauterie
+    4300036: Vapeur
+    4300038: CouvercleD
+    4300040: CouvercleG
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

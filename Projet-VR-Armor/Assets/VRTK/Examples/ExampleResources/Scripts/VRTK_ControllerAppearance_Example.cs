@@ -63,7 +63,7 @@
 
         private void DoTriggerPressed(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.TriggerTooltip);
+            //tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.TriggerTooltip);
             highligher.HighlightElement(SDK_BaseController.ControllerElements.Trigger, highlightColor, (pulseTriggerHighlightColor ? pulseTimer : highlightTimer));
             if (pulseTriggerHighlightColor)
             {
@@ -74,7 +74,7 @@
 
         private void DoTriggerReleased(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.TriggerTooltip);
+            //tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.TriggerTooltip);
             highligher.UnhighlightElement(SDK_BaseController.ControllerElements.Trigger);
             if (pulseTriggerHighlightColor)
             {
@@ -88,14 +88,14 @@
 
         private void DoButtonOnePressed(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.ButtonOneTooltip);
+            //tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.ButtonOneTooltip);
             highligher.HighlightElement(SDK_BaseController.ControllerElements.ButtonOne, highlightColor, highlightTimer);
             VRTK_ObjectAppearance.SetOpacity(VRTK_DeviceFinder.GetModelAliasController(events.gameObject), dimOpacity);
         }
 
         private void DoButtonOneReleased(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.ButtonOneTooltip);
+            //tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.ButtonOneTooltip);
             highligher.UnhighlightElement(SDK_BaseController.ControllerElements.ButtonOne);
             if (!events.AnyButtonPressed())
             {
@@ -105,14 +105,14 @@
 
         private void DoButtonTwoPressed(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.ButtonTwoTooltip);
+            //tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.ButtonTwoTooltip);
             highligher.HighlightElement(SDK_BaseController.ControllerElements.ButtonTwo, highlightColor, highlightTimer);
             VRTK_ObjectAppearance.SetOpacity(VRTK_DeviceFinder.GetModelAliasController(events.gameObject), dimOpacity);
         }
 
         private void DoButtonTwoReleased(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.ButtonTwoTooltip);
+            //tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.ButtonTwoTooltip);
             highligher.UnhighlightElement(SDK_BaseController.ControllerElements.ButtonTwo);
             if (!events.AnyButtonPressed())
             {
@@ -122,14 +122,14 @@
 
         private void DoStartMenuPressed(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.StartMenuTooltip);
+            //tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.StartMenuTooltip);
             highligher.HighlightElement(SDK_BaseController.ControllerElements.StartMenu, highlightColor, highlightTimer);
             VRTK_ObjectAppearance.SetOpacity(VRTK_DeviceFinder.GetModelAliasController(events.gameObject), dimOpacity);
         }
 
         private void DoStartMenuReleased(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.StartMenuTooltip);
+            //tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.StartMenuTooltip);
             highligher.UnhighlightElement(SDK_BaseController.ControllerElements.StartMenu);
             if (!events.AnyButtonPressed())
             {
@@ -139,7 +139,7 @@
 
         private void DoGripPressed(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.GripTooltip);
+            //tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.GripTooltip);
             highligher.HighlightElement(SDK_BaseController.ControllerElements.GripLeft, highlightColor, highlightTimer);
             highligher.HighlightElement(SDK_BaseController.ControllerElements.GripRight, highlightColor, highlightTimer);
             VRTK_ObjectAppearance.SetOpacity(VRTK_DeviceFinder.GetModelAliasController(events.gameObject), dimOpacity);
@@ -147,7 +147,7 @@
 
         private void DoGripReleased(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.GripTooltip);
+            //tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.GripTooltip);
             highligher.UnhighlightElement(SDK_BaseController.ControllerElements.GripLeft);
             highligher.UnhighlightElement(SDK_BaseController.ControllerElements.GripRight);
             if (!events.AnyButtonPressed())
@@ -158,14 +158,14 @@
 
         private void DoTouchpadPressed(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.TouchpadTooltip);
+            //tooltips.ToggleTips(true, VRTK_ControllerTooltips.TooltipButtons.TouchpadTooltip);
             highligher.HighlightElement(SDK_BaseController.ControllerElements.Touchpad, highlightColor, highlightTimer);
             VRTK_ObjectAppearance.SetOpacity(VRTK_DeviceFinder.GetModelAliasController(events.gameObject), dimOpacity);
         }
 
         private void DoTouchpadReleased(object sender, ControllerInteractionEventArgs e)
         {
-            tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.TouchpadTooltip);
+            //tooltips.ToggleTips(false, VRTK_ControllerTooltips.TooltipButtons.TouchpadTooltip);
             highligher.UnhighlightElement(SDK_BaseController.ControllerElements.Touchpad);
             if (!events.AnyButtonPressed())
             {

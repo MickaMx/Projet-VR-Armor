@@ -9,8 +9,6 @@ using VRTK;
 
 public class CalculDist : MasterScript
 {
-    //[Tooltip("Manette à suivre pour les appuis sur bouton")]
-    //public ViveControllerInputTest RightController;
     [Tooltip("Pointer pour la position des points")]
     public VRTK_Pointer Pointer;
 

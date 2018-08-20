@@ -2329,6 +2329,16 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114565717773573910, guid: 7d4a2b26c5d537a499b9acd3167bea14,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114549923383572420, guid: 7d4a2b26c5d537a499b9acd3167bea14,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d4a2b26c5d537a499b9acd3167bea14, type: 2}
   m_IsPrefabParent: 0
@@ -5414,7 +5424,7 @@ Rigidbody:
   m_Drag: 0.5
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0

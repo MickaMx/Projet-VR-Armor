@@ -26,8 +26,7 @@ public class ButtonTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //if (i == 0)
-       // {
+
             if (firstHit && secondHit)//Actif quand deux tirs ont été réalisé
             {
                 firstHit = false;//Remise a zero
@@ -49,14 +48,5 @@ public class ButtonTrigger : MonoBehaviour
                 anim.Play(Animation2);
                 return;
             }
-        //}
     }
-
-    /*void OnTriggerExit(Collider other)
-    {
-        if (i == 1)//évite la répétition des évènements OnTriggerExit;
-        {
-            i = 0;
-        }
-    }*/
 }

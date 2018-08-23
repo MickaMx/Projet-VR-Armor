@@ -215,7 +215,7 @@ namespace VRTK
                 {
                     if (state)
                     {
-                        //controllerEvents.OnControllerVisible(controllerEvents.SetControllerEvent());
+                        controllerEvents.OnControllerVisible(controllerEvents.SetControllerEvent());
                     }
                     else
                     {

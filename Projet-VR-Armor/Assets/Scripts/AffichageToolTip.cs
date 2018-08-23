@@ -49,7 +49,7 @@ public class AffichageToolTip : MonoBehaviour
         allChildren = Parent.GetComponentsInChildren<Renderer>();//Récupération des objets du modele
 
 
-        if (tag == "Highlight")
+        if (tag == "Highlight") 
         {
             tag = "Origin";//tag l'objet d'origin 
             for (int i = 0; i < allChildren.Length; i++)//On parcours tout les objects du modèle

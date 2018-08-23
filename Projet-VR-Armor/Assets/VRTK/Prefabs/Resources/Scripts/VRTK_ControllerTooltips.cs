@@ -1,6 +1,9 @@
 ﻿// Controller Tooltips|Prefabs|0030
 namespace VRTK
 {
+    using System;
+    using System.Collections;
+    using System.Linq;
     using UnityEngine;
 
     /// <summary>
@@ -258,6 +261,9 @@ namespace VRTK
 
             buttonTooltips = new VRTK_ObjectTooltip[availableButtons.Length];
             tooltipStates = new bool[availableButtons.Length];
+
+            tooltipStates = tooltipStates.Select(i => true).ToArray(); //Initialisation des booléens d'états du tooltip
+
 
             for (int i = 1; i < availableButtons.Length; i++)
             {

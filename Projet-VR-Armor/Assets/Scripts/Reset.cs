@@ -75,7 +75,7 @@ public class Reset : MasterScript
                 flag = true;
                 for (int i = 0; i < allObjectsInteractable.Length; i++)
                 {
-                    allObjectsInteractable[i].GetComponent<Rigidbody>().isKinematic = false;//re-activation de la physique
+                    allObjectsInteractable[i].GetComponent<Rigidbody>().isKinematic = true;//re-activation de la physique
                 }
             }
         }
